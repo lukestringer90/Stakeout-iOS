@@ -7,19 +7,46 @@
 //
 
 import UIKit
+import TwitterKit
 
-class ViewController: UIViewController {
+class ViewController: TWTRTimelineViewController {
+	
+	let screenName = "lukestringer90"
+	let listSlug = "Travel"
+	
+	var tweetView: TWTRTweetView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		guard TWTRTwitter.sharedInstance().sessionStore.session() != nil else {
+			login()
+			return
+		}
+		
+		setupTimeline()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+		
+	}
+	
+	func login() {
+		TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
+			guard session != nil else {
+				let alert = UIAlertController(title: "Login Error", message: error?.localizedDescription, preferredStyle: .alert)
+				self.show(alert, sender: nil)
+				return
+			}
+			
+			self.setupTimeline()
+		})
+	}
+	
+	func setupTimeline() {
+		dataSource = FilteredListTimelineDataSource(listSlug: listSlug,
+													listOwnerScreenName: screenName,
+													searchStrings: ["Sheffield", "Rotherham"],
+													apiClient: TWTRAPIClient())
+		title = listSlug
+	}
 
 }
-
