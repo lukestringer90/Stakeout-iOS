@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A1615533C3007A3A091C51BA /* Pods_Tweet_MonitorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BE771562D8D19C566C8EB2 /* Pods_Tweet_MonitorTests.framework */; };
+		A311D598206E7C46003C9242 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A311D597206E7C46003C9242 /* SafariServices.framework */; };
 		C931309D3E1A24962BD93F7F /* Pods_Tweet_Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */; };
 		F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13E8206E65D600FC067E /* AppDelegate.swift */; };
 		F55F13EB206E65D600FC067E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13EA206E65D600FC067E /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		5B5330A95129E93184CA0074 /* Pods-Tweet Monitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet Monitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet Monitor/Pods-Tweet Monitor.debug.xcconfig"; sourceTree = "<group>"; };
 		77B4EF68E7B01DE23AE0FF05 /* Pods-Tweet MonitorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet MonitorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet MonitorTests/Pods-Tweet MonitorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0122E792F30362072E05EA /* Pods-Tweet Monitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet Monitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet Monitor/Pods-Tweet Monitor.release.xcconfig"; sourceTree = "<group>"; };
+		A311D597206E7C46003C9242 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		F3EEF0ADD85C32B8499EC53B /* Pods-Tweet MonitorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet MonitorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet MonitorTests/Pods-Tweet MonitorTests.release.xcconfig"; sourceTree = "<group>"; };
 		F55F13E5206E65D600FC067E /* Tweet Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tweet Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F13E8206E65D600FC067E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A311D598206E7C46003C9242 /* SafariServices.framework in Frameworks */,
 				C931309D3E1A24962BD93F7F /* Pods_Tweet_Monitor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +72,7 @@
 		4F5C82FB6D7DE8EE124638ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A311D597206E7C46003C9242 /* SafariServices.framework */,
 				FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */,
 				17BE771562D8D19C566C8EB2 /* Pods_Tweet_MonitorTests.framework */,
 			);
@@ -259,11 +263,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Tweet Monitor/Pods-Tweet Monitor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 			);
