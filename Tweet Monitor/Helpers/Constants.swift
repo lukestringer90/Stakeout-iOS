@@ -16,10 +16,10 @@ struct Constants {
 		static let lukestringer90 = UserTag.screenName("lukestringer90")
 		
 		static var travelList: ListTag = {
-			return ListTag.slug("Travel", owner: lukestringer90)
+			return ListTag.slug("TweetMonitorTest", owner: lukestringer90)
 		}()
 	}
 	
-	static let tweetSearchStrings = ["sheffield", "rotherham"]
+	static let tweetSearchStrings = ["circle", "bakerloo"]
 	
 }
