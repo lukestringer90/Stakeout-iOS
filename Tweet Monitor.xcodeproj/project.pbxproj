@@ -20,6 +20,8 @@
 		F55F13F0206E65D600FC067E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55F13EF206E65D600FC067E /* Assets.xcassets */; };
 		F55F13F3206E65D600FC067E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F13F1206E65D600FC067E /* LaunchScreen.storyboard */; };
 		F55F13FE206E65D700FC067E /* Tweet_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13FD206E65D700FC067E /* Tweet_MonitorTests.swift */; };
+		F55F140B20703B1300FC067E /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F140A20703B1300FC067E /* ListSelectionViewController.swift */; };
+		F55F140D20703C2700FC067E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F140C20703C2700FC067E /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		F55F13F9206E65D700FC067E /* Tweet MonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tweet MonitorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F13FD206E65D700FC067E /* Tweet_MonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet_MonitorTests.swift; sourceTree = "<group>"; };
 		F55F13FF206E65D700FC067E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F55F140A20703B1300FC067E /* ListSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
+		F55F140C20703C2700FC067E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tweet_Monitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,6 +108,8 @@
 				F55F13E8206E65D600FC067E /* AppDelegate.swift */,
 				A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */,
 				F55F13EA206E65D600FC067E /* TimelineViewController.swift */,
+				F55F140A20703B1300FC067E /* ListSelectionViewController.swift */,
+				F55F140C20703C2700FC067E /* Models.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -400,6 +406,8 @@
 				A39409A0206FF7580095320F /* Constants.swift in Sources */,
 				F55F13EB206E65D600FC067E /* TimelineViewController.swift in Sources */,
 				A394099A206FF0720095320F /* TweetText.swift in Sources */,
+				F55F140D20703C2700FC067E /* Models.swift in Sources */,
+				F55F140B20703B1300FC067E /* ListSelectionViewController.swift in Sources */,
 				F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */,
 				A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */,
 				A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */,
