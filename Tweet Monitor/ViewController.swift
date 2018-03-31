@@ -24,9 +24,9 @@ class ViewController: TWTRTimelineViewController {
 			return
 		}
 		
-		setupTimeline()
-
-		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+			self.setupTimeline()
+		}
 	}
 	
 	func login() {
