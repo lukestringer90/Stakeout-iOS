@@ -8,6 +8,7 @@
 
 import UIKit
 import TwitterKit
+import Swifter
 
 class ViewController: TWTRTimelineViewController {
 	
@@ -19,23 +20,23 @@ class ViewController: TWTRTimelineViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		guard TWTRTwitter.sharedInstance().sessionStore.session() != nil else {
+		guard let session = TWTRTwitter.sharedInstance().sessionStore.session() else {
 			login()
 			return
 		}
-		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-			self.setupTimeline()
-		}
+		Swifter.setup(from: session)
+		setupTimeline()
 	}
 	
 	func login() {
 		TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
-			guard session != nil else {
+			guard let session = session else {
 				let alert = UIAlertController(title: "Login Error", message: error?.localizedDescription, preferredStyle: .alert)
 				self.show(alert, sender: nil)
 				return
 			}
+			
+			Swifter.setup(from: session)
 			
 			self.setupTimeline()
 		})

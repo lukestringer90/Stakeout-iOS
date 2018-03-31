@@ -9,20 +9,16 @@
 import UIKit
 import TwitterKit
 import Keys
-import Swifter
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         TWTRTwitter.sharedInstance().start(withConsumerKey: TweetMonitorKeys().twitterConsumerKey,
                                            consumerSecret: TweetMonitorKeys().twitterConsumerSecret)
-		
-		Swifter.setup(consumerKey: TweetMonitorKeys().twitterConsumerKey, consumerSecret: TweetMonitorKeys().twitterConsumerSecret)
         
         return true
     }
