@@ -12,10 +12,6 @@ import Swifter
 
 class ViewController: TWTRTimelineViewController {
 	
-	let screenName = "lukestringer90"
-	let listSlug = "Travel"
-	let searchStrings = ["sheffield", "rotherham"]
-	
 	var tweetView: TWTRTweetView!
 
 	override func viewDidLoad() {
@@ -44,20 +40,30 @@ class ViewController: TWTRTimelineViewController {
 	}
 	
 	func setupTimeline() {
-		dataSource = FilteredListTimelineDataSource(listSlug: listSlug,
+		let list = Constants.Twitter.travelList
+		
+		guard let (slug, screenName) = list.slugAndOwnerScreenName() else {
+			fatalError("Bad List or User Tag")
+		}
+		
+		let searchStrings = Constants.tweetSearchStrings
+		
+		dataSource = FilteredListTimelineDataSource(listSlug: slug,
 													listOwnerScreenName: screenName,
 													matching: searchStrings,
 													apiClient: TWTRAPIClient())
-		title = listSlug
+		title = slug
+
 		
-		let list = ListTag.slug(listSlug, owner: .screenName(screenName))
+		
+		
 		Swifter.shared().listTweets(for: list, sinceID: nil, maxID: nil, count: nil, includeEntities: nil, includeRTs: nil, success: { json in
 			
 			guard let tweetsJSON = json.array else { return }
 			
 			let texts = tweetsJSON.compactMap { return $0["text"].string }
 			
-			let toKeep = texts.keepTweets(containingAnyOf: self.searchStrings)
+			let toKeep = texts.keepTweets(containingAnyOf: searchStrings)
 			
 			print(toKeep)
 			

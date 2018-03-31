@@ -38,5 +38,24 @@ extension Swifter {
 									   oauthTokenSecret: session.authTokenSecret)
 		return sharedInstance
 	}
-	
+}
+
+extension UserTag {
+	func screenName() -> String? {
+		switch self {
+		case .screenName(let screenName): return screenName
+		default: return nil
+		}
+	}
+}
+
+extension ListTag {
+	func slugAndOwnerScreenName() -> (String, String)? {
+		switch self {
+		case .slug(let slug, let owner):
+			guard let screeName = owner.screenName() else { return nil }
+			return (slug, screeName)
+		default: return nil
+		}
+	}
 }
