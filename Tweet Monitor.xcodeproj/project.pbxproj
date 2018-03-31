@@ -13,6 +13,7 @@
 		A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940993206FCBED0095320F /* Swifter+Extensions.swift */; };
 		A394099A206FF0720095320F /* TweetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940999206FF0720095320F /* TweetText.swift */; };
 		A39409A0206FF7580095320F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394099F206FF7580095320F /* Constants.swift */; };
+		A3F150812070177800144F68 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F150802070177700144F68 /* UserNotifications.framework */; };
 		C931309D3E1A24962BD93F7F /* Pods_Tweet_Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */; };
 		F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13E8206E65D600FC067E /* AppDelegate.swift */; };
 		F55F13EB206E65D600FC067E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13EA206E65D600FC067E /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 		A3940993206FCBED0095320F /* Swifter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swifter+Extensions.swift"; sourceTree = "<group>"; };
 		A3940999206FF0720095320F /* TweetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetText.swift; sourceTree = "<group>"; };
 		A394099F206FF7580095320F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A3F150802070177700144F68 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		F3EEF0ADD85C32B8499EC53B /* Pods-Tweet MonitorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet MonitorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet MonitorTests/Pods-Tweet MonitorTests.release.xcconfig"; sourceTree = "<group>"; };
 		F55F13E5206E65D600FC067E /* Tweet Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tweet Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F13E8206E65D600FC067E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F150812070177800144F68 /* UserNotifications.framework in Frameworks */,
 				A311D598206E7C46003C9242 /* SafariServices.framework in Frameworks */,
 				C931309D3E1A24962BD93F7F /* Pods_Tweet_Monitor.framework in Frameworks */,
 			);
@@ -80,6 +83,7 @@
 		4F5C82FB6D7DE8EE124638ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3F150802070177700144F68 /* UserNotifications.framework */,
 				A311D597206E7C46003C9242 /* SafariServices.framework */,
 				FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */,
 				17BE771562D8D19C566C8EB2 /* Pods_Tweet_MonitorTests.framework */,
@@ -233,6 +237,11 @@
 					F55F13E4206E65D600FC067E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					F55F13F8206E65D700FC067E = {
 						CreatedOnToolsVersion = 9.2;
