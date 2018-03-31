@@ -14,6 +14,7 @@ class ViewController: TWTRTimelineViewController {
 	
 	let screenName = "lukestringer90"
 	let listSlug = "Travel"
+	let searchStrings = ["sheffield", "rotherham"]
 	
 	var tweetView: TWTRTweetView!
 
@@ -45,9 +46,24 @@ class ViewController: TWTRTimelineViewController {
 	func setupTimeline() {
 		dataSource = FilteredListTimelineDataSource(listSlug: listSlug,
 													listOwnerScreenName: screenName,
-													searchStrings: ["Sheffield", "Rotherham"],
+													matching: searchStrings,
 													apiClient: TWTRAPIClient())
 		title = listSlug
-	}
+		
+		let list = ListTag.slug(listSlug, owner: .screenName(screenName))
+		Swifter.shared().listTweets(for: list, sinceID: nil, maxID: nil, count: nil, includeEntities: nil, includeRTs: nil, success: { json in
+			
+			guard let tweetsJSON = json.array else { return }
+			
+			let texts = tweetsJSON.compactMap { return $0["text"].string }
+			
+			let toKeep = texts.keepTweets(containingAnyOf: self.searchStrings)
+			
+			print(toKeep)
+			
+		}) { error in
+			print(error)
+		}
 
+	}
 }

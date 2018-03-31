@@ -13,8 +13,8 @@ class FilteredListTimelineDataSource: TWTRListTimelineDataSource {
 	
 	let searchStrings: [String]
 	
-	init(listSlug: String, listOwnerScreenName: String, searchStrings: [String], apiClient client: TWTRAPIClient) {
-		self.searchStrings = searchStrings
+	init(listSlug: String, listOwnerScreenName: String, matching: [String], apiClient client: TWTRAPIClient) {
+		self.searchStrings = matching
 		super.init(listID: nil, listSlug: listSlug, listOwnerScreenName: listOwnerScreenName, apiClient: client, maxTweetsPerRequest: 0, includeRetweets: true)
 	}
 	
@@ -26,16 +26,7 @@ class FilteredListTimelineDataSource: TWTRListTimelineDataSource {
 				return
 			}
 			
-			let filteredTweets = tweets.filter { tweet -> Bool in
-				
-				for string in self.searchStrings {
-					if tweet.text.range(of: string) != nil {
-						return true
-					}
-				}
-				
-				return false
-			}
+			let filteredTweets = tweets.keepTweets(containingAnyOf: self.searchStrings)
 			
 			completion(filteredTweets, cursor, error)
 			
