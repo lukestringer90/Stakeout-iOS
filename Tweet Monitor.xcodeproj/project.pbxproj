@@ -15,7 +15,7 @@
 		A39409A0206FF7580095320F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394099F206FF7580095320F /* Constants.swift */; };
 		C931309D3E1A24962BD93F7F /* Pods_Tweet_Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */; };
 		F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13E8206E65D600FC067E /* AppDelegate.swift */; };
-		F55F13EB206E65D600FC067E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13EA206E65D600FC067E /* ViewController.swift */; };
+		F55F13EB206E65D600FC067E /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13EA206E65D600FC067E /* TimelineViewController.swift */; };
 		F55F13EE206E65D600FC067E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F13EC206E65D600FC067E /* Main.storyboard */; };
 		F55F13F0206E65D600FC067E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55F13EF206E65D600FC067E /* Assets.xcassets */; };
 		F55F13F3206E65D600FC067E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F13F1206E65D600FC067E /* LaunchScreen.storyboard */; };
@@ -45,7 +45,7 @@
 		F3EEF0ADD85C32B8499EC53B /* Pods-Tweet MonitorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet MonitorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet MonitorTests/Pods-Tweet MonitorTests.release.xcconfig"; sourceTree = "<group>"; };
 		F55F13E5206E65D600FC067E /* Tweet Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tweet Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F13E8206E65D600FC067E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F55F13EA206E65D600FC067E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F55F13EA206E65D600FC067E /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		F55F13ED206E65D600FC067E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F55F13EF206E65D600FC067E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F55F13F2206E65D600FC067E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			children = (
 				F55F13E8206E65D600FC067E /* AppDelegate.swift */,
 				A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */,
-				F55F13EA206E65D600FC067E /* ViewController.swift */,
+				F55F13EA206E65D600FC067E /* TimelineViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -398,7 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A39409A0206FF7580095320F /* Constants.swift in Sources */,
-				F55F13EB206E65D600FC067E /* ViewController.swift in Sources */,
+				F55F13EB206E65D600FC067E /* TimelineViewController.swift in Sources */,
 				A394099A206FF0720095320F /* TweetText.swift in Sources */,
 				F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */,
 				A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */,

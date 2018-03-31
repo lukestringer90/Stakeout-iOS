@@ -10,7 +10,7 @@ import UIKit
 import TwitterKit
 import Swifter
 
-class ViewController: TWTRTimelineViewController {
+class TimelineViewController: TWTRTimelineViewController {
 	
 	var tweetView: TWTRTweetView!
 
@@ -26,8 +26,11 @@ class ViewController: TWTRTimelineViewController {
 	}
 }
 
+fileprivate extension TimelineViewController {
+    @IBAction func unwind(_:UIStoryboardSegue) { }
+}
 
-fileprivate extension ViewController {
+fileprivate extension TimelineViewController {
     func login() {
         TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
             guard let session = session else {
