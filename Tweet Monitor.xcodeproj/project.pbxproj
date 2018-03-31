@@ -96,6 +96,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A394099B206FF7010095320F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F55F13E8206E65D600FC067E /* AppDelegate.swift */,
+				A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */,
+				F55F13EA206E65D600FC067E /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A394099C206FF7090095320F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A3940993206FCBED0095320F /* Swifter+Extensions.swift */,
+				A3940999206FF0720095320F /* TweetText.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A394099D206FF7160095320F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F55F13EC206E65D600FC067E /* Main.storyboard */,
+				F55F13F1206E65D600FC067E /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A394099E206FF71C0095320F /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F55F13EF206E65D600FC067E /* Assets.xcassets */,
+				F55F13F4206E65D600FC067E /* Info.plist */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		F55F13DC206E65D600FC067E = {
 			isa = PBXGroup;
 			children = (
@@ -119,15 +156,10 @@
 		F55F13E7206E65D600FC067E /* Tweet Monitor */ = {
 			isa = PBXGroup;
 			children = (
-				F55F13E8206E65D600FC067E /* AppDelegate.swift */,
-				A3940993206FCBED0095320F /* Swifter+Extensions.swift */,
-				A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */,
-				A3940999206FF0720095320F /* TweetText.swift */,
-				F55F13EA206E65D600FC067E /* ViewController.swift */,
-				F55F13EC206E65D600FC067E /* Main.storyboard */,
-				F55F13EF206E65D600FC067E /* Assets.xcassets */,
-				F55F13F1206E65D600FC067E /* LaunchScreen.storyboard */,
-				F55F13F4206E65D600FC067E /* Info.plist */,
+				A394099B206FF7010095320F /* View Controllers */,
+				A394099C206FF7090095320F /* Helpers */,
+				A394099D206FF7160095320F /* Views */,
+				A394099E206FF71C0095320F /* Other */,
 			);
 			path = "Tweet Monitor";
 			sourceTree = "<group>";
@@ -522,7 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7F3D3W6BZ;
-				INFOPLIST_FILE = "Tweet Monitor/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Tweet Monitor/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.lukestringer.Tweet-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -538,7 +570,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C7F3D3W6BZ;
-				INFOPLIST_FILE = "Tweet Monitor/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Tweet Monitor/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.lukestringer.Tweet-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
