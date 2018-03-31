@@ -15,11 +15,21 @@ struct Constants {
 		
 		static let lukestringer90 = UserTag.screenName("lukestringer90")
 		
-		static var travelList: ListTag = {
-			return ListTag.slug("TweetMonitorTest", owner: lukestringer90)
-		}()
+        struct List {
+            static var sheffieldTravel: ListTag = {
+                return ListTag.slug("Travel", owner: lukestringer90)
+            }()
+            
+            static var tweetMonitorTest: ListTag = {
+                return ListTag.slug("TweetMonitorTest", owner: lukestringer90)
+            }()
+        }
 	}
-	
-	static let tweetSearchStrings = ["circle", "bakerloo"]
+    
+    struct SearchStrings {
+        static let whitespace = [" "]
+        static let tram = ["malin bridge", "city hall"]
+        static let london = ["circle", "bakerloo"]
+    }
 	
 }

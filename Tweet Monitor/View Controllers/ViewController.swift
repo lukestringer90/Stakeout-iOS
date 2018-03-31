@@ -24,49 +24,51 @@ class ViewController: TWTRTimelineViewController {
 		Swifter.setup(from: session)
 		setupTimeline()
 	}
-	
-	func login() {
-		TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
-			guard let session = session else {
-				let alert = UIAlertController(title: "Login Error", message: error?.localizedDescription, preferredStyle: .alert)
-				self.show(alert, sender: nil)
-				return
-			}
-			
-			Swifter.setup(from: session)
-			
-			self.setupTimeline()
-		})
-	}
-	
-	func setupTimeline() {
-		let list = Constants.Twitter.travelList
-		
-		guard let (slug, screenName) = list.slugAndOwnerScreenName() else {
-			fatalError("Bad List or User Tag")
-		}
-		
-		let searchStrings = Constants.tweetSearchStrings
-		
-		dataSource = FilteredListTimelineDataSource(listSlug: slug,
-													listOwnerScreenName: screenName,
-													matching: searchStrings,
-													apiClient: TWTRAPIClient())
-		title = slug
-		
-		Swifter.shared().listTweets(for: list, sinceID: nil, maxID: nil, count: nil, includeEntities: nil, includeRTs: nil, success: { json in
-			
-			guard let tweetsJSON = json.array else { return }
-			
-			let texts = tweetsJSON.compactMap { return $0["text"].string }
-			
-			let toKeep = texts.keepTweets(containingAnyOf: searchStrings)
-			
-			print("Found \(toKeep.count) matching tweets")
-			
-		}) { error in
-			print(error)
-		}
+}
 
-	}
+
+fileprivate extension ViewController {
+    func login() {
+        TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
+            guard let session = session else {
+                let alert = UIAlertController(title: "Login Error", message: error?.localizedDescription, preferredStyle: .alert)
+                self.show(alert, sender: nil)
+                return
+            }
+            
+            Swifter.setup(from: session)
+            
+            self.setupTimeline()
+        })
+    }
+    
+    func setupTimeline() {
+        let list = Constants.Twitter.List.tweetMonitorTest
+        
+        guard let (slug, screenName) = list.slugAndOwnerScreenName() else {
+            fatalError("Bad List or User Tag")
+        }
+        
+        let searchStrings = Constants.SearchStrings.whitespace
+        
+        dataSource = FilteredListTimelineDataSource(listSlug: slug,
+                                                    listOwnerScreenName: screenName,
+                                                    matching: searchStrings,
+                                                    apiClient: TWTRAPIClient())
+        title = slug
+        
+        Swifter.shared().listTweets(for: list, sinceID: nil, maxID: nil, count: nil, includeEntities: nil, includeRTs: nil, success: { json in
+            
+            guard let tweetsJSON = json.array else { return }
+            
+            let texts = tweetsJSON.flatMap { return $0["text"].string }
+            
+            let toKeep = texts.keepTweets(containingAnyOf: searchStrings)
+            
+            print("Found \(toKeep.count) matching tweets")
+            
+        }) { error in
+            print(error)
+        }
+    }
 }
