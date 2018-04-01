@@ -11,10 +11,10 @@ import TwitterKit
 
 class FilteredListTimelineDataSource: TWTRListTimelineDataSource {
 	
-	let searchStrings: [String]
+	let kewords: [String]
 	
 	init(listSlug: String, listOwnerScreenName: String, matching: [String], apiClient client: TWTRAPIClient) {
-		self.searchStrings = matching
+		self.kewords = matching
 		super.init(listID: nil, listSlug: listSlug, listOwnerScreenName: listOwnerScreenName, apiClient: client, maxTweetsPerRequest: 0, includeRetweets: true)
 	}
 	
@@ -26,7 +26,7 @@ class FilteredListTimelineDataSource: TWTRListTimelineDataSource {
 				return
 			}
 			
-			let filteredTweets = tweets.keepTweets(containingAnyOf: self.searchStrings)
+			let filteredTweets = tweets.match(containingAnyOf: self.kewords)
 			
 			completion(filteredTweets, cursor, error)
 			

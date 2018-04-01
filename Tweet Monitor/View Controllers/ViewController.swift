@@ -9,10 +9,15 @@
 import UIKit
 import TwitterKit
 import Swifter
+import CoreLocation
 
 class ViewController: TWTRTimelineViewController {
 	
 	var tweetView: TWTRTweetView!
+	var locationManager: BackgroundLocationManager!
+	
+	let list = Constants.Twitter.travelList
+	let keywords = Constants.tweetSearchStrings
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -21,10 +26,13 @@ class ViewController: TWTRTimelineViewController {
 			login()
 			return
 		}
-		Swifter.setup(from: session)
-		setupTimeline()
+		
+		startWith(session: session)
 	}
-	
+}
+
+// MARK: - Setup
+fileprivate extension ViewController {
 	func login() {
 		TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
 			guard let session = session else {
@@ -33,40 +41,46 @@ class ViewController: TWTRTimelineViewController {
 				return
 			}
 			
-			Swifter.setup(from: session)
-			
-			self.setupTimeline()
+			self.startWith(session: session)
 		})
 	}
 	
+	func startWith(session: TWTRAuthSession) {
+		Swifter.setup(from: session)
+		locationManager = BackgroundLocationManager(callback: locationUpdated)
+		setupTimeline()
+	}
+	
 	func setupTimeline() {
-		let list = Constants.Twitter.travelList
 		
 		guard let (slug, screenName) = list.slugAndOwnerScreenName() else {
 			fatalError("Bad List or User Tag")
 		}
 		
-		let searchStrings = Constants.tweetSearchStrings
-		
 		dataSource = FilteredListTimelineDataSource(listSlug: slug,
 													listOwnerScreenName: screenName,
-													matching: searchStrings,
+													matching: keywords,
 													apiClient: TWTRAPIClient())
 		title = slug
-		
-		Swifter.shared().listTweets(for: list, sinceID: nil, maxID: nil, count: nil, includeEntities: nil, includeRTs: nil, success: { json in
-			
-			guard let tweetsJSON = json.array else { return }
-			
-			let texts = tweetsJSON.compactMap { return $0["text"].string }
-			
-			let toKeep = texts.keepTweets(containingAnyOf: searchStrings)
-			
-			print("Found \(toKeep.count) matching tweets")
-			
-		}) { error in
-			print(error)
-		}
+	}
+}
 
+// MARK: - Location updates
+fileprivate extension ViewController {
+	func locationUpdated(with locations: [CLLocation]) {
+		
+		TweetKeywordMatcher.requestTweets(in: list, withTextContainingAnyOf: keywords) { possibleMatching, error in
+			guard let matching = possibleMatching else {
+				print(error ?? "No matching or error")
+				return
+			}
+			
+			let notificationText: String = {
+				return matching.count > 0 ? "New Matching Tweets" : "Nothing Matching"
+			}()
+			print(notificationText)
+			
+			NotificationSender.sendNotification(withText: notificationText)
+		}
 	}
 }
