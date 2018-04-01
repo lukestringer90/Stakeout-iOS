@@ -32,7 +32,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		checkForNewTweets { newTweets, error in
+			guard error == nil, let tweets = newTweets else {
+				completionHandler(.failed)
+				return
+			}
+			
+			let result: UIBackgroundFetchResult = {
+				if tweets.count > 0 {
+					
+					self.sendLocationNotification(text: "New Tweets")
+					
+					return .newData
+				}
+				self.sendLocationNotification(text: "Fecth Found No New Tweets")
+				return .noData
+			}()
+			
+			completionHandler(result)
+		}
 		
+	}
+
+}
+
+fileprivate extension AppDelegate {
+	
+	func checkForNewTweets(completion: @escaping (_ newTweets: [TweetText]?, _ error: Error?) -> ()) {
 		let list = Constants.Twitter.travelList
 		let searchStrings = Constants.tweetSearchStrings
 		
@@ -46,28 +72,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 			print("Found \(toKeep.count) matching tweets")
 			
-			let result: UIBackgroundFetchResult = {
-				if toKeep.count > 0 {
-					
-					self.sendLocationNotification(text: "New Tweets")
-					
-					return .newData
-				}
-				self.sendLocationNotification(text: "Fecth Found No New Tweets")
-				return .noData
-			}()
-			
-			completionHandler(result)
+			completion(toKeep, nil)
 			
 		}) { error in
-			print(error)
-			
-			completionHandler(.failed)
+			completion(nil, error)
 		}
 
 	}
 	
-	private func sendLocationNotification(text: String) {
+	func sendLocationNotification(text: String) {
 		let center = UNUserNotificationCenter.current()
 		
 		let options: UNAuthorizationOptions = [.alert, .sound]
@@ -75,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		center.requestAuthorization(options: options) {
 			(granted, error) in
 			guard granted else {
-				print(error)
+				print(error ?? "no granted")
 				return
 			}
 			
@@ -96,5 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			})
 		}
 	}
+	
 }
 
