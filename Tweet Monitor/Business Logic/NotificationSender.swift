@@ -11,7 +11,7 @@ import UserNotifications
 
 struct NotificationSender {
 	
-	static func sendNotification(withText text: String) {
+	static func sendNotification(title: String, subtitle: String) {
 		let center = UNUserNotificationCenter.current()
 		
 		let options: UNAuthorizationOptions = [.alert, .sound]
@@ -19,12 +19,13 @@ struct NotificationSender {
 		center.requestAuthorization(options: options) {
 			(granted, error) in
 			guard granted else {
-				print(error ?? "no granted")
+				print(error ?? "not granted")
 				return
 			}
 			
 			let content = UNMutableNotificationContent()
-			content.title = text
+			content.title = title
+			content.body = subtitle
 			content.sound = UNNotificationSound.default()
 			
 			let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1,

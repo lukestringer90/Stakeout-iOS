@@ -128,7 +128,7 @@
         <!--Search Strings-->
         <scene sceneID="q9T-Sj-O6S">
             <objects>
-                <tableViewController title="Search Strings" id="Ppn-hW-ukk" customClass="SearchStringsViewController" customModule="Tweet_Monitor" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Search Strings" id="Ppn-hW-ukk" customClass="KeywordsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yA9-rq-uiQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,7 +157,7 @@
                             <outlet property="delegate" destination="Ppn-hW-ukk" id="v0r-dV-TmJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search Strings" id="KGT-xK-Vv1">
+                    <navigationItem key="navigationItem" title="Keywords" id="KGT-xK-Vv1">
                         <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="Lw4-tQ-ueo">
                             <connections>
                                 <segue destination="l4O-Ny-Iqd" kind="unwind" unwindAction="unwind:" id="UyC-8I-Jty"/>
@@ -179,7 +179,7 @@
         <scene sceneID="VtY-64-8ce">
             <objects>
                 <navigationController title="Search Strings" id="fE4-d8-dnW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search Strings" id="fEf-Lq-1oR"/>
+                    <tabBarItem key="tabBarItem" title="Keywords" id="fEf-Lq-1oR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jiy-Vh-wjh">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

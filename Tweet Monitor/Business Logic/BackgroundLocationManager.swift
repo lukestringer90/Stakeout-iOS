@@ -22,7 +22,7 @@ class BackgroundLocationManager: CLLocationManager {
 		delegate = self
 		allowsBackgroundLocationUpdates = true
 		desiredAccuracy = kCLLocationAccuracyHundredMeters
-		distanceFilter = 100
+		distanceFilter = CLLocationDistance(Constants.locationDistanceFilterMeters)
 		startUpdatingLocation()
 		
 		if CLLocationManager.authorizationStatus() != .authorizedAlways {

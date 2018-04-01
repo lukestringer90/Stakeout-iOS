@@ -11,9 +11,13 @@ import Swifter
 
 struct Constants {
 	
+	static let locationDistanceFilterMeters = 100
+	static let tweetsPerRequest = 50
+	
 	struct Twitter {
 		
 		static let lukestringer90 = UserTag.screenName("lukestringer90")
+        static let  kem_sorrell = UserTag.screenName("kem_sorrell")
 		
         struct List {
             static var sheffieldTravel: ListTag = {
@@ -22,6 +26,10 @@ struct Constants {
             
             static var tweetMonitorTest: ListTag = {
                 return ListTag.slug("TweetMonitorTest", owner: lukestringer90)
+            }()
+            
+            static var verifiedAccounts: ListTag = {
+                return ListTag.slug("verified-accounts", owner: kem_sorrell)
             }()
         }
 	}

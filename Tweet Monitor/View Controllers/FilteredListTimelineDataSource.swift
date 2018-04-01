@@ -15,7 +15,7 @@ class FilteredListTimelineDataSource: TWTRListTimelineDataSource {
 	
 	init(listSlug: String, listOwnerScreenName: String, matching: [String], apiClient client: TWTRAPIClient) {
 		self.kewords = matching
-		super.init(listID: nil, listSlug: listSlug, listOwnerScreenName: listOwnerScreenName, apiClient: client, maxTweetsPerRequest: 0, includeRetweets: true)
+		super.init(listID: nil, listSlug: listSlug, listOwnerScreenName: listOwnerScreenName, apiClient: client, maxTweetsPerRequest: UInt(Constants.tweetsPerRequest), includeRetweets: true)
 	}
 	
 	override func loadPreviousTweets(beforePosition position: String?, completion: @escaping TWTRLoadTimelineCompletion) {

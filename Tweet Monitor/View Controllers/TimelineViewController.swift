@@ -13,11 +13,10 @@ import CoreLocation
 
 class TimelineViewController: TWTRTimelineViewController {
 	
-	var tweetView: TWTRTweetView!
 	var locationManager: BackgroundLocationManager!
 	
-	let list = Constants.Twitter.List.tweetMonitorTest
-	let keywords = Constants.Keywords.london
+	let list = Constants.Twitter.List.sheffieldTravel
+	let keywords = ["sheffield"]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -73,18 +72,20 @@ fileprivate extension TimelineViewController {
 fileprivate extension TimelineViewController {
 	func locationUpdated(with locations: [CLLocation]) {
 		
-		TweetKeywordMatcher.requestTweets(in: list, withTextContainingAnyOf: keywords) { possibleMatching, error in
+        let matcher = TweetKeywordMatcher(store: TweetIDStore.shared)
+        
+		matcher.requestTweets(in: list, withTextContainingAnyOf: keywords) { possibleMatching, error in
 			guard let matching = possibleMatching else {
 				print(error ?? "No matching or error")
 				return
 			}
 			
-			let notificationText: String = {
-				return matching.count > 0 ? "New Matching Tweets" : "Nothing Matching"
-			}()
-			print(notificationText)
-			
-			NotificationSender.sendNotification(withText: notificationText)
+			if matching.count > 0 {
+				print("\(matching.count) new tweets Matching: \(self.keywords)")
+				print("\(matching.map { $0.text })")
+				NotificationSender.sendNotification(title: "New Matching Tweets", subtitle: matching.first!.text)
+				self.refresh()
+			}
 		}
 	}
 }
