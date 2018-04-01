@@ -12,6 +12,7 @@
 		A37847D82070E839007FE524 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37847D72070E839007FE524 /* CoreLocation.framework */; };
 		A37847DA20713A05007FE524 /* BackgroundLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847D920713A05007FE524 /* BackgroundLocationManager.swift */; };
 		A37847DF20713DFD007FE524 /* TweetKeywordMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847DE20713DFD007FE524 /* TweetKeywordMatcher.swift */; };
+		A37847E1207144C3007FE524 /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847E0207144C3007FE524 /* NotificationSender.swift */; };
 		A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */; };
 		A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940993206FCBED0095320F /* Swifter+Extensions.swift */; };
 		A394099A206FF0720095320F /* TweetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940999206FF0720095320F /* TweetText.swift */; };
@@ -45,6 +46,7 @@
 		A37847D72070E839007FE524 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A37847D920713A05007FE524 /* BackgroundLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLocationManager.swift; sourceTree = "<group>"; };
 		A37847DE20713DFD007FE524 /* TweetKeywordMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetKeywordMatcher.swift; sourceTree = "<group>"; };
+		A37847E0207144C3007FE524 /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredListTimelineDataSource.swift; sourceTree = "<group>"; };
 		A3940993206FCBED0095320F /* Swifter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swifter+Extensions.swift"; sourceTree = "<group>"; };
 		A3940999206FF0720095320F /* TweetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetText.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				A37847D920713A05007FE524 /* BackgroundLocationManager.swift */,
 				A3940999206FF0720095320F /* TweetText.swift */,
 				A37847DE20713DFD007FE524 /* TweetKeywordMatcher.swift */,
+				A37847E0207144C3007FE524 /* NotificationSender.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37847E1207144C3007FE524 /* NotificationSender.swift in Sources */,
 				A39409A0206FF7580095320F /* Constants.swift in Sources */,
 				F55F13EB206E65D600FC067E /* ViewController.swift in Sources */,
 				A394099A206FF0720095320F /* TweetText.swift in Sources */,

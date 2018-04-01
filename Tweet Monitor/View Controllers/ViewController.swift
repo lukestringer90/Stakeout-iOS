@@ -9,11 +9,15 @@
 import UIKit
 import TwitterKit
 import Swifter
+import CoreLocation
 
 class ViewController: TWTRTimelineViewController {
 	
 	var tweetView: TWTRTweetView!
 	var locationManager: BackgroundLocationManager!
+	
+	let list = Constants.Twitter.travelList
+	let keywords = Constants.tweetSearchStrings
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,7 +29,10 @@ class ViewController: TWTRTimelineViewController {
 		
 		startWith(session: session)
 	}
-	
+}
+
+// MARK: - Setup
+fileprivate extension ViewController {
 	func login() {
 		TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
 			guard let session = session else {
@@ -40,23 +47,40 @@ class ViewController: TWTRTimelineViewController {
 	
 	func startWith(session: TWTRAuthSession) {
 		Swifter.setup(from: session)
-		locationManager = BackgroundLocationManager()
+		locationManager = BackgroundLocationManager(callback: locationUpdated)
 		setupTimeline()
 	}
 	
 	func setupTimeline() {
-		let list = Constants.Twitter.travelList
 		
 		guard let (slug, screenName) = list.slugAndOwnerScreenName() else {
 			fatalError("Bad List or User Tag")
 		}
 		
-		let searchStrings = Constants.tweetSearchStrings
-		
 		dataSource = FilteredListTimelineDataSource(listSlug: slug,
 													listOwnerScreenName: screenName,
-													matching: searchStrings,
+													matching: keywords,
 													apiClient: TWTRAPIClient())
 		title = slug
+	}
+}
+
+// MARK: - Location updates
+fileprivate extension ViewController {
+	func locationUpdated(with locations: [CLLocation]) {
+		
+		TweetKeywordMatcher.requestTweets(in: list, withTextContainingAnyOf: keywords) { possibleMatching, error in
+			guard let matching = possibleMatching else {
+				print(error ?? "No matching or error")
+				return
+			}
+			
+			let notificationText: String = {
+				return matching.count > 0 ? "New Matching Tweets" : "Nothing Matching"
+			}()
+			print(notificationText)
+			
+			NotificationSender.sendNotification(withText: notificationText)
+		}
 	}
 }
