@@ -11,6 +11,7 @@
 		A311D598206E7C46003C9242 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A311D597206E7C46003C9242 /* SafariServices.framework */; };
 		A37847D82070E839007FE524 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37847D72070E839007FE524 /* CoreLocation.framework */; };
 		A37847DA20713A05007FE524 /* BackgroundLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847D920713A05007FE524 /* BackgroundLocationManager.swift */; };
+		A37847DF20713DFD007FE524 /* TweetKeywordMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847DE20713DFD007FE524 /* TweetKeywordMatcher.swift */; };
 		A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */; };
 		A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940993206FCBED0095320F /* Swifter+Extensions.swift */; };
 		A394099A206FF0720095320F /* TweetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940999206FF0720095320F /* TweetText.swift */; };
@@ -43,6 +44,7 @@
 		A311D597206E7C46003C9242 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		A37847D72070E839007FE524 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A37847D920713A05007FE524 /* BackgroundLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLocationManager.swift; sourceTree = "<group>"; };
+		A37847DE20713DFD007FE524 /* TweetKeywordMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetKeywordMatcher.swift; sourceTree = "<group>"; };
 		A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredListTimelineDataSource.swift; sourceTree = "<group>"; };
 		A3940993206FCBED0095320F /* Swifter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swifter+Extensions.swift"; sourceTree = "<group>"; };
 		A3940999206FF0720095320F /* TweetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetText.swift; sourceTree = "<group>"; };
@@ -108,6 +110,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A37847DD20713DDA007FE524 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				A37847D920713A05007FE524 /* BackgroundLocationManager.swift */,
+				A3940999206FF0720095320F /* TweetText.swift */,
+				A37847DE20713DFD007FE524 /* TweetKeywordMatcher.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
 		A394099B206FF7010095320F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,8 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				A3940993206FCBED0095320F /* Swifter+Extensions.swift */,
-				A37847D920713A05007FE524 /* BackgroundLocationManager.swift */,
-				A3940999206FF0720095320F /* TweetText.swift */,
 				A394099F206FF7580095320F /* Constants.swift */,
 			);
 			path = Helpers;
@@ -172,6 +182,7 @@
 			children = (
 				A394099B206FF7010095320F /* View Controllers */,
 				A394099C206FF7090095320F /* Helpers */,
+				A37847DD20713DDA007FE524 /* Business Logic */,
 				A394099D206FF7160095320F /* Views */,
 				A394099E206FF71C0095320F /* Other */,
 			);
@@ -419,6 +430,7 @@
 				F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */,
 				A37847DA20713A05007FE524 /* BackgroundLocationManager.swift in Sources */,
 				A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */,
+				A37847DF20713DFD007FE524 /* TweetKeywordMatcher.swift in Sources */,
 				A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

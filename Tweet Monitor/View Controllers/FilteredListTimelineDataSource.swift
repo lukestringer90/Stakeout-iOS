@@ -26,7 +26,7 @@ class FilteredListTimelineDataSource: TWTRListTimelineDataSource {
 				return
 			}
 			
-			let filteredTweets = tweets.keepTweets(containingAnyOf: self.searchStrings)
+			let filteredTweets = tweets.match(containingAnyOf: self.searchStrings)
 			
 			completion(filteredTweets, cursor, error)
 			

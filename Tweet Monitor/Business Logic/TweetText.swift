@@ -14,10 +14,9 @@ protocol TweetText {
 }
 
 extension Sequence where Iterator.Element: TweetText {
-	func keepTweets(containingAnyOf searchStrings: [String]) -> [Iterator.Element] {
+	func match(containingAnyOf keywords: [String]) -> [Iterator.Element] {
 		return filter { tweet -> Bool in
-			
-			for string in searchStrings {
+			for string in keywords {
 				if tweet.text.lowercased().range(of: string.lowercased()) != nil {
 					return true
 				}

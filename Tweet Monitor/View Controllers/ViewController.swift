@@ -58,20 +58,5 @@ class ViewController: TWTRTimelineViewController {
 													matching: searchStrings,
 													apiClient: TWTRAPIClient())
 		title = slug
-		
-		Swifter.shared().listTweets(for: list, sinceID: nil, maxID: nil, count: nil, includeEntities: nil, includeRTs: nil, success: { json in
-			
-			guard let tweetsJSON = json.array else { return }
-			
-			let texts = tweetsJSON.compactMap { return $0["text"].string }
-			
-			let toKeep = texts.keepTweets(containingAnyOf: searchStrings)
-			
-			print("Found \(toKeep.count) matching tweets")
-			
-		}) { error in
-			print(error)
-		}
-
 	}
 }

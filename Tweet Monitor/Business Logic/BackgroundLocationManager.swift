@@ -31,7 +31,22 @@ class BackgroundLocationManager: CLLocationManager {
 
 extension BackgroundLocationManager: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		checkForNewTweets()
+		let list = Constants.Twitter.travelList
+		let keywords = Constants.tweetSearchStrings
+		
+		TweetKeywordMatcher.requestTweets(in: list, withTextContainingAnyOf: keywords) { possibleMatching, error in
+			guard let matching = possibleMatching else {
+				print(error ?? "No matching or error")
+				return
+			}
+			
+			let notificationText: String = {
+				return matching.count > 0 ? "New Matching Tweets" : "Nothing Matching"
+			}()
+			print(notificationText)
+			
+			self.sendLocationNotification(text: notificationText)
+		}
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -42,38 +57,7 @@ extension BackgroundLocationManager: CLLocationManagerDelegate {
 }
 
 fileprivate extension BackgroundLocationManager {
-	
-	typealias CheckForNewTweetsCompletion = (_ newTweets: [TweetText]?, _ error: Error?) -> ()
-	
-	func checkForNewTweets(completion: CheckForNewTweetsCompletion? = nil) {
-		let list = Constants.Twitter.travelList
-		let searchStrings = Constants.tweetSearchStrings
 		
-		Swifter.shared().listTweets(for: list, sinceID: nil, maxID: nil, count: nil, includeEntities: nil, includeRTs: nil, success: { json in
-			
-			guard let tweetsJSON = json.array else { return }
-			
-			let texts = tweetsJSON.compactMap { return $0["text"].string }
-			
-			let toKeep = texts.keepTweets(containingAnyOf: searchStrings)
-			
-			if toKeep.count > 0 {
-				self.sendLocationNotification(text: "New Tweets")
-			}
-			else {
-				self.sendLocationNotification(text: "No New Tweets")
-			}
-			
-			print("Found \(toKeep.count) matching tweets")
-			
-			completion?(toKeep, nil)
-			
-		}) { error in
-			completion?(nil, error)
-		}
-		
-	}
-	
 	func sendLocationNotification(text: String) {
 		let center = UNUserNotificationCenter.current()
 		
