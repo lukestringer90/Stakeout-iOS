@@ -30,6 +30,7 @@
 		F55F141720714DA800FC067E /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141420714DA800FC067E /* ListSelectionViewController.swift */; };
 		F55F141A20714DFF00FC067E /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141920714DFF00FC067E /* List.swift */; };
 		F55F141C207155EC00FC067E /* TweetIDStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141B207155EC00FC067E /* TweetIDStore.swift */; };
+		F5A15E4620719D7D00BB4A99 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5A15E4520719D7D00BB4A99 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		F55F141420714DA800FC067E /* ListSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
 		F55F141920714DFF00FC067E /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = "Tweet Monitor/Models/List.swift"; sourceTree = SOURCE_ROOT; };
 		F55F141B207155EC00FC067E /* TweetIDStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetIDStore.swift; sourceTree = "<group>"; };
+		F5A15E4520719D7D00BB4A99 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tweet_Monitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 		A394099E206FF71C0095320F /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F5A15E4520719D7D00BB4A99 /* Settings.bundle */,
 				F55F13EF206E65D600FC067E /* Assets.xcassets */,
 				F55F13F4206E65D600FC067E /* Info.plist */,
 			);
@@ -319,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A15E4620719D7D00BB4A99 /* Settings.bundle in Resources */,
 				F55F13F3206E65D600FC067E /* LaunchScreen.storyboard in Resources */,
 				F55F13F0206E65D600FC067E /* Assets.xcassets in Resources */,
 				F55F13EE206E65D600FC067E /* Main.storyboard in Resources */,
@@ -347,7 +351,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

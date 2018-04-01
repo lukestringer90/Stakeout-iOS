@@ -14,5 +14,10 @@ target 'Tweet Monitor' do
   target 'Tweet MonitorTests' do
     inherit! :search_paths
   end
+  
+end
 
+post_install do | installer |
+    require 'fileutils'
+    FileUtils.cp_r('Pods/Target Support Files/Pods-Tweet Monitor/Pods-Tweet Monitor-acknowledgements.plist', 'Tweet Monitor/Other/Settings.bundle/Code-Acknowledgements.plist', :remove_destination => true)
 end
