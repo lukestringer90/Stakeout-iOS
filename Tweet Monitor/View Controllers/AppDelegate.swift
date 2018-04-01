@@ -11,18 +11,27 @@ import TwitterKit
 import Keys
 import Swifter
 import UserNotifications
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+	let locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
         TWTRTwitter.sharedInstance().start(withConsumerKey: TweetMonitorKeys().twitterConsumerKey,
                                            consumerSecret: TweetMonitorKeys().twitterConsumerSecret)
 		
-		application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+		if CLLocationManager.authorizationStatus() != .authorizedAlways {
+			locationManager.requestAlwaysAuthorization()
+		}
+		locationManager.delegate = self
+		locationManager.allowsBackgroundLocationUpdates = true
+		locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+		locationManager.distanceFilter = 100
+		locationManager.startUpdatingLocation()
         
         return true
     }
@@ -30,35 +39,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 		return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
 	}
-	
-	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-		checkForNewTweets { newTweets, error in
-			guard error == nil, let tweets = newTweets else {
-				completionHandler(.failed)
-				return
-			}
-			
-			let result: UIBackgroundFetchResult = {
-				if tweets.count > 0 {
-					
-					self.sendLocationNotification(text: "New Tweets")
-					
-					return .newData
-				}
-				self.sendLocationNotification(text: "Fecth Found No New Tweets")
-				return .noData
-			}()
-			
-			completionHandler(result)
-		}
-		
-	}
+}
 
+extension AppDelegate: CLLocationManagerDelegate {
+	
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		checkForNewTweets()
+	}
+	
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+		guard status == .authorizedAlways else { return }
+		
+		locationManager.startUpdatingLocation()
+	}
+	
 }
 
 fileprivate extension AppDelegate {
 	
-	func checkForNewTweets(completion: @escaping (_ newTweets: [TweetText]?, _ error: Error?) -> ()) {
+	typealias CheckForNewTweetsCompletion = (_ newTweets: [TweetText]?, _ error: Error?) -> ()
+	
+	func checkForNewTweets(completion: CheckForNewTweetsCompletion? = nil) {
 		let list = Constants.Twitter.travelList
 		let searchStrings = Constants.tweetSearchStrings
 		
@@ -70,12 +71,19 @@ fileprivate extension AppDelegate {
 			
 			let toKeep = texts.keepTweets(containingAnyOf: searchStrings)
 			
+			if toKeep.count > 0 {
+				self.sendLocationNotification(text: "New Tweets")
+			}
+			else {
+				self.sendLocationNotification(text: "No New Tweets")
+			}
+			
 			print("Found \(toKeep.count) matching tweets")
 			
-			completion(toKeep, nil)
+			completion?(toKeep, nil)
 			
 		}) { error in
-			completion(nil, error)
+			completion?(nil, error)
 		}
 
 	}

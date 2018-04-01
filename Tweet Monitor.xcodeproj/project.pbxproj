@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A1615533C3007A3A091C51BA /* Pods_Tweet_MonitorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BE771562D8D19C566C8EB2 /* Pods_Tweet_MonitorTests.framework */; };
 		A311D598206E7C46003C9242 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A311D597206E7C46003C9242 /* SafariServices.framework */; };
+		A37847D82070E839007FE524 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37847D72070E839007FE524 /* CoreLocation.framework */; };
 		A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */; };
 		A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940993206FCBED0095320F /* Swifter+Extensions.swift */; };
 		A394099A206FF0720095320F /* TweetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940999206FF0720095320F /* TweetText.swift */; };
@@ -39,6 +40,7 @@
 		77B4EF68E7B01DE23AE0FF05 /* Pods-Tweet MonitorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet MonitorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet MonitorTests/Pods-Tweet MonitorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0122E792F30362072E05EA /* Pods-Tweet Monitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet Monitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet Monitor/Pods-Tweet Monitor.release.xcconfig"; sourceTree = "<group>"; };
 		A311D597206E7C46003C9242 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		A37847D72070E839007FE524 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredListTimelineDataSource.swift; sourceTree = "<group>"; };
 		A3940993206FCBED0095320F /* Swifter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swifter+Extensions.swift"; sourceTree = "<group>"; };
 		A3940999206FF0720095320F /* TweetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetText.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37847D82070E839007FE524 /* CoreLocation.framework in Frameworks */,
 				A3F150812070177800144F68 /* UserNotifications.framework in Frameworks */,
 				A311D598206E7C46003C9242 /* SafariServices.framework in Frameworks */,
 				C931309D3E1A24962BD93F7F /* Pods_Tweet_Monitor.framework in Frameworks */,
@@ -83,6 +86,7 @@
 		4F5C82FB6D7DE8EE124638ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A37847D72070E839007FE524 /* CoreLocation.framework */,
 				A3F150802070177700144F68 /* UserNotifications.framework */,
 				A311D597206E7C46003C9242 /* SafariServices.framework */,
 				FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */,
