@@ -9,10 +9,15 @@
 import UIKit
 import TwitterKit
 import Swifter
+import CoreLocation
 
 class TimelineViewController: TWTRTimelineViewController {
 	
 	var tweetView: TWTRTweetView!
+	var locationManager: BackgroundLocationManager!
+	
+	let list = Constants.Twitter.List.tweetMonitorTest
+	let keywords = Constants.Keywords.london
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -21,8 +26,8 @@ class TimelineViewController: TWTRTimelineViewController {
 			login()
 			return
 		}
-		Swifter.setup(from: session)
-		setupTimeline()
+		
+		startWith(session: session)
 	}
 }
 
@@ -30,48 +35,56 @@ fileprivate extension TimelineViewController {
     @IBAction func unwind(_:UIStoryboardSegue) { }
 }
 
+// MARK: - Setup
 fileprivate extension TimelineViewController {
-    func login() {
-        TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
-            guard let session = session else {
-                let alert = UIAlertController(title: "Login Error", message: error?.localizedDescription, preferredStyle: .alert)
-                self.show(alert, sender: nil)
-                return
-            }
-            
-            Swifter.setup(from: session)
-            
-            self.setupTimeline()
-        })
-    }
-    
-    func setupTimeline() {
-        let list = Constants.Twitter.List.tweetMonitorTest
-        
-        guard let (slug, screenName) = list.slugAndOwnerScreenName() else {
-            fatalError("Bad List or User Tag")
-        }
-        
-        let searchStrings = Constants.SearchStrings.whitespace
-        
-        dataSource = FilteredListTimelineDataSource(listSlug: slug,
-                                                    listOwnerScreenName: screenName,
-                                                    matching: searchStrings,
-                                                    apiClient: TWTRAPIClient())
-        title = slug
-        
-        Swifter.shared().listTweets(for: list, sinceID: nil, maxID: nil, count: nil, includeEntities: nil, includeRTs: nil, success: { json in
-            
-            guard let tweetsJSON = json.array else { return }
-            
-            let texts = tweetsJSON.flatMap { return $0["text"].string }
-            
-            let toKeep = texts.keepTweets(containingAnyOf: searchStrings)
-            
-            print("Found \(toKeep.count) matching tweets")
-            
-        }) { error in
-            print(error)
-        }
-    }
+	func login() {
+		TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
+			guard let session = session else {
+				let alert = UIAlertController(title: "Login Error", message: error?.localizedDescription, preferredStyle: .alert)
+				self.show(alert, sender: nil)
+				return
+			}
+			
+			self.startWith(session: session)
+		})
+	}
+	
+	func startWith(session: TWTRAuthSession) {
+		Swifter.setup(from: session)
+		locationManager = BackgroundLocationManager(callback: locationUpdated)
+		setupTimeline()
+	}
+	
+	func setupTimeline() {
+		
+		guard let (slug, screenName) = list.slugAndOwnerScreenName() else {
+			fatalError("Bad List or User Tag")
+		}
+		
+		dataSource = FilteredListTimelineDataSource(listSlug: slug,
+													listOwnerScreenName: screenName,
+													matching: keywords,
+													apiClient: TWTRAPIClient())
+		title = slug
+	}
+}
+
+// MARK: - Location updates
+fileprivate extension TimelineViewController {
+	func locationUpdated(with locations: [CLLocation]) {
+		
+		TweetKeywordMatcher.requestTweets(in: list, withTextContainingAnyOf: keywords) { possibleMatching, error in
+			guard let matching = possibleMatching else {
+				print(error ?? "No matching or error")
+				return
+			}
+			
+			let notificationText: String = {
+				return matching.count > 0 ? "New Matching Tweets" : "Nothing Matching"
+			}()
+			print(notificationText)
+			
+			NotificationSender.sendNotification(withText: notificationText)
+		}
+	}
 }

@@ -26,7 +26,7 @@ struct Constants {
         }
 	}
     
-    struct SearchStrings {
+    struct Keywords {
         static let whitespace = [" "]
         static let tram = ["malin bridge", "city hall"]
         static let london = ["circle", "bakerloo"]
