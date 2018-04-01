@@ -11,8 +11,7 @@ import Swifter
 
 struct Constants {
 	
-	static let locationDistanceFilterMeters = 100
-	static let tweetsPerRequest = 50
+	static let tweetsPerRequest = 10
 	
 	struct Twitter {
 		

@@ -21,9 +21,7 @@ class BackgroundLocationManager: CLLocationManager {
 		super.init()
 		delegate = self
 		allowsBackgroundLocationUpdates = true
-		desiredAccuracy = kCLLocationAccuracyHundredMeters
-		distanceFilter = CLLocationDistance(Constants.locationDistanceFilterMeters)
-		startUpdatingLocation()
+        startMonitoringSignificantLocationChanges()
 		
 		if CLLocationManager.authorizationStatus() != .authorizedAlways {
 			requestAlwaysAuthorization()
@@ -33,6 +31,7 @@ class BackgroundLocationManager: CLLocationManager {
 
 extension BackgroundLocationManager: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Location updated")
 		callback(locations)
 	}
 }
