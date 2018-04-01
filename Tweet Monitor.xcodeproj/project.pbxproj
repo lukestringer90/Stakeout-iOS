@@ -10,6 +10,7 @@
 		A1615533C3007A3A091C51BA /* Pods_Tweet_MonitorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BE771562D8D19C566C8EB2 /* Pods_Tweet_MonitorTests.framework */; };
 		A311D598206E7C46003C9242 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A311D597206E7C46003C9242 /* SafariServices.framework */; };
 		A37847D82070E839007FE524 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37847D72070E839007FE524 /* CoreLocation.framework */; };
+		A37847DA20713A05007FE524 /* BackgroundLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847D920713A05007FE524 /* BackgroundLocationManager.swift */; };
 		A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */; };
 		A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940993206FCBED0095320F /* Swifter+Extensions.swift */; };
 		A394099A206FF0720095320F /* TweetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940999206FF0720095320F /* TweetText.swift */; };
@@ -41,6 +42,7 @@
 		7C0122E792F30362072E05EA /* Pods-Tweet Monitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet Monitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet Monitor/Pods-Tweet Monitor.release.xcconfig"; sourceTree = "<group>"; };
 		A311D597206E7C46003C9242 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		A37847D72070E839007FE524 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A37847D920713A05007FE524 /* BackgroundLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLocationManager.swift; sourceTree = "<group>"; };
 		A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredListTimelineDataSource.swift; sourceTree = "<group>"; };
 		A3940993206FCBED0095320F /* Swifter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swifter+Extensions.swift"; sourceTree = "<group>"; };
 		A3940999206FF0720095320F /* TweetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetText.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A3940993206FCBED0095320F /* Swifter+Extensions.swift */,
+				A37847D920713A05007FE524 /* BackgroundLocationManager.swift */,
 				A3940999206FF0720095320F /* TweetText.swift */,
 				A394099F206FF7580095320F /* Constants.swift */,
 			);
@@ -414,6 +417,7 @@
 				F55F13EB206E65D600FC067E /* ViewController.swift in Sources */,
 				A394099A206FF0720095320F /* TweetText.swift in Sources */,
 				F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */,
+				A37847DA20713A05007FE524 /* BackgroundLocationManager.swift in Sources */,
 				A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */,
 				A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */,
 			);

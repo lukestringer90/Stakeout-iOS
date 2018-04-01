@@ -13,6 +13,7 @@ import Swifter
 class ViewController: TWTRTimelineViewController {
 	
 	var tweetView: TWTRTweetView!
+	var locationManager: BackgroundLocationManager!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -21,8 +22,8 @@ class ViewController: TWTRTimelineViewController {
 			login()
 			return
 		}
-		Swifter.setup(from: session)
-		setupTimeline()
+		
+		startWith(session: session)
 	}
 	
 	func login() {
@@ -33,10 +34,14 @@ class ViewController: TWTRTimelineViewController {
 				return
 			}
 			
-			Swifter.setup(from: session)
-			
-			self.setupTimeline()
+			self.startWith(session: session)
 		})
+	}
+	
+	func startWith(session: TWTRAuthSession) {
+		Swifter.setup(from: session)
+		locationManager = BackgroundLocationManager()
+		setupTimeline()
 	}
 	
 	func setupTimeline() {
