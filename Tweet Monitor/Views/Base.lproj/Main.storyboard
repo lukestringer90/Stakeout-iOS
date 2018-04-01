@@ -51,7 +51,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ztB-0p-mvZ">
-                        <barButtonItem key="rightBarButtonItem" title="Setup" id="Hdq-fG-tmw">
+                        <barButtonItem key="leftBarButtonItem" title="Setup" id="Hdq-fG-tmw">
                             <connections>
                                 <segue destination="sEN-DH-Ued" kind="presentation" id="TeT-ha-HOs"/>
                             </connections>
@@ -113,7 +113,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Lists" id="Dau-Qc-Fzl">
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="gIw-r9-l7e">
+                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="gIw-r9-l7e">
                             <connections>
                                 <segue destination="AgX-4r-BM0" kind="unwind" unwindAction="unwind:" id="5nD-aI-PDz"/>
                             </connections>
@@ -128,18 +128,27 @@
         <!--Search Strings-->
         <scene sceneID="q9T-Sj-O6S">
             <objects>
-                <tableViewController title="Search Strings" id="Ppn-hW-ukk" sceneMemberID="viewController">
+                <tableViewController title="Search Strings" id="Ppn-hW-ukk" customClass="SearchStringsViewController" customModule="Tweet_Monitor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yA9-rq-uiQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2ZB-II-0ia">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KeywordCell" textLabel="3hu-PI-9Wz" style="IBUITableViewCellStyleDefault" id="2ZB-II-0ia">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ZB-II-0ia" id="HwR-NU-fcX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3hu-PI-9Wz">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -149,9 +158,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search Strings" id="KGT-xK-Vv1">
-                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="Lw4-tQ-ueo">
+                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="Lw4-tQ-ueo">
                             <connections>
                                 <segue destination="l4O-Ny-Iqd" kind="unwind" unwindAction="unwind:" id="UyC-8I-Jty"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="RhT-ME-vnU">
+                            <connections>
+                                <action selector="addTapped:" destination="Ppn-hW-ukk" id="HAy-di-y6E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

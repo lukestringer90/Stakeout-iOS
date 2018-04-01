@@ -21,7 +21,8 @@
 		F55F13F3206E65D600FC067E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F13F1206E65D600FC067E /* LaunchScreen.storyboard */; };
 		F55F13FE206E65D700FC067E /* Tweet_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13FD206E65D700FC067E /* Tweet_MonitorTests.swift */; };
 		F55F140B20703B1300FC067E /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F140A20703B1300FC067E /* ListSelectionViewController.swift */; };
-		F55F140D20703C2700FC067E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F140C20703C2700FC067E /* Models.swift */; };
+		F55F140D20703C2700FC067E /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F140C20703C2700FC067E /* List.swift */; };
+		F55F1411207041D200FC067E /* SearchStringsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F1410207041D200FC067E /* SearchStringsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,8 @@
 		F55F13FD206E65D700FC067E /* Tweet_MonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet_MonitorTests.swift; sourceTree = "<group>"; };
 		F55F13FF206E65D700FC067E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F55F140A20703B1300FC067E /* ListSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
-		F55F140C20703C2700FC067E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		F55F140C20703C2700FC067E /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		F55F1410207041D200FC067E /* SearchStringsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStringsViewController.swift; sourceTree = "<group>"; };
 		FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tweet_Monitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,7 +111,7 @@
 				A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */,
 				F55F13EA206E65D600FC067E /* TimelineViewController.swift */,
 				F55F140A20703B1300FC067E /* ListSelectionViewController.swift */,
-				F55F140C20703C2700FC067E /* Models.swift */,
+				F55F1410207041D200FC067E /* SearchStringsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -165,6 +167,7 @@
 		F55F13E7206E65D600FC067E /* Tweet Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				F55F140F2070419500FC067E /* Models */,
 				A394099B206FF7010095320F /* View Controllers */,
 				A394099C206FF7090095320F /* Helpers */,
 				A394099D206FF7160095320F /* Views */,
@@ -180,6 +183,14 @@
 				F55F13FF206E65D700FC067E /* Info.plist */,
 			);
 			path = "Tweet MonitorTests";
+			sourceTree = "<group>";
+		};
+		F55F140F2070419500FC067E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F55F140C20703C2700FC067E /* List.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,10 +417,11 @@
 				A39409A0206FF7580095320F /* Constants.swift in Sources */,
 				F55F13EB206E65D600FC067E /* TimelineViewController.swift in Sources */,
 				A394099A206FF0720095320F /* TweetText.swift in Sources */,
-				F55F140D20703C2700FC067E /* Models.swift in Sources */,
+				F55F140D20703C2700FC067E /* List.swift in Sources */,
 				F55F140B20703B1300FC067E /* ListSelectionViewController.swift in Sources */,
 				F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */,
 				A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */,
+				F55F1411207041D200FC067E /* SearchStringsViewController.swift in Sources */,
 				A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
