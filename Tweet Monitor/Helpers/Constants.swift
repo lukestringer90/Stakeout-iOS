@@ -36,7 +36,8 @@ struct Constants {
     struct Keywords {
         static let whitespace = [" "]
         static let tram = ["malin bridge", "city hall"]
-        static let london = ["circle", "bakerloo"]
+		static let sheffield = ["sheffield"]
+        static let tube = ["circle", "bakerloo"]
     }
 	
 }

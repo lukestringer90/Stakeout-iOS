@@ -7,9 +7,19 @@
 //
 
 import Foundation
+import Swifter
 
 struct List {
     let id: Int
     let slug: String
     let name: String
+    let ownerScreenName: String
+}
+
+extension List {
+    var listTag: ListTag {
+        get {
+            return .slug(slug, owner: .screenName(ownerScreenName))
+        }
+    }
 }
