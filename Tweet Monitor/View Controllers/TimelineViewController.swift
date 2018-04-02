@@ -15,11 +15,13 @@ class TimelineViewController: TWTRTimelineViewController {
 	
 	var locationManager: BackgroundLocationManager!
 	
-	let list = Constants.Twitter.List.sheffieldTravel
-	let keywords = ["sheffield"]
+    var list: List?
+	let keywords = Constants.Keywords.whitespace
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        setupMockData()
 		
 		guard let session = TWTRTwitter.sharedInstance().sessionStore.session() else {
 			login()
@@ -27,7 +29,16 @@ class TimelineViewController: TWTRTimelineViewController {
 		}
 		
 		startWith(session: session)
+
+		TWTRTweetView.appearance().showActionButtons = false
 	}
+    
+    func setupMockData() {
+        let listTag = Constants.Twitter.List.sheffieldTravel
+        let (slug, screenName) = listTag.slugAndOwnerScreenName()!
+        
+        list = List(id: 0, slug: slug, name: slug, ownerScreenName: screenName)
+    }
 }
 
 fileprivate extension TimelineViewController {
@@ -49,14 +60,19 @@ fileprivate extension TimelineViewController {
 	}
 	
 	func startWith(session: TWTRAuthSession) {
+        guard let selectedList = list else {
+            showListSelection()
+            return
+        }
+        
 		Swifter.setup(from: session)
 		locationManager = BackgroundLocationManager(callback: locationUpdated)
-		setupTimeline()
+        setupTimeline(with: selectedList)
 	}
 	
-	func setupTimeline() {
+    func setupTimeline(with list: List) {
 		
-		guard let (slug, screenName) = list.slugAndOwnerScreenName() else {
+		guard let (slug, screenName) = list.listTag.slugAndOwnerScreenName() else {
 			fatalError("Bad List or User Tag")
 		}
 		
@@ -66,15 +82,25 @@ fileprivate extension TimelineViewController {
 													apiClient: TWTRAPIClient())
 		title = slug
 	}
+    
+    func showListSelection() {
+        // TODO: Seque to list selection
+        print("Show list selection")
+    }
 }
 
 // MARK: - Location updates
 fileprivate extension TimelineViewController {
 	func locationUpdated(with locations: [CLLocation]) {
+        
+        guard let selectedList = list else {
+            showListSelection()
+            return
+        }
 		
         let matcher = TweetKeywordMatcher(store: TweetIDStore.shared)
         
-		matcher.requestTweets(in: list, withTextContainingAnyOf: keywords) { possibleMatching, error in
+		matcher.requestTweets(in: selectedList.listTag, withTextContainingAnyOf: keywords) { possibleMatching, error in
 			guard let matching = possibleMatching else {
 				print(error ?? "No matching or error")
 				return

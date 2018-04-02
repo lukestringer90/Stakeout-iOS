@@ -26,7 +26,7 @@
 		F55F13F0206E65D600FC067E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55F13EF206E65D600FC067E /* Assets.xcassets */; };
 		F55F13F3206E65D600FC067E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F13F1206E65D600FC067E /* LaunchScreen.storyboard */; };
 		F55F13FE206E65D700FC067E /* Tweet_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13FD206E65D700FC067E /* Tweet_MonitorTests.swift */; };
-		F55F141520714DA800FC067E /* KeywordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141220714DA800FC067E /* KeywordsViewController.swift */; };
+		F55F141520714DA800FC067E /* KeywordSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141220714DA800FC067E /* KeywordSelectionViewController.swift */; };
 		F55F141720714DA800FC067E /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141420714DA800FC067E /* ListSelectionViewController.swift */; };
 		F55F141A20714DFF00FC067E /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141920714DFF00FC067E /* List.swift */; };
 		F55F141C207155EC00FC067E /* TweetIDStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141B207155EC00FC067E /* TweetIDStore.swift */; };
@@ -70,7 +70,7 @@
 		F55F13F9206E65D700FC067E /* Tweet MonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tweet MonitorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F13FD206E65D700FC067E /* Tweet_MonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet_MonitorTests.swift; sourceTree = "<group>"; };
 		F55F13FF206E65D700FC067E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F55F141220714DA800FC067E /* KeywordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordsViewController.swift; sourceTree = "<group>"; };
+		F55F141220714DA800FC067E /* KeywordSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordSelectionViewController.swift; sourceTree = "<group>"; };
 		F55F141420714DA800FC067E /* ListSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
 		F55F141920714DFF00FC067E /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = "Tweet Monitor/Models/List.swift"; sourceTree = SOURCE_ROOT; };
 		F55F141B207155EC00FC067E /* TweetIDStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetIDStore.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 			children = (
 				F55F13E8206E65D600FC067E /* AppDelegate.swift */,
 				F55F141420714DA800FC067E /* ListSelectionViewController.swift */,
-				F55F141220714DA800FC067E /* KeywordsViewController.swift */,
+				F55F141220714DA800FC067E /* KeywordSelectionViewController.swift */,
 				A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */,
 				F55F13EA206E65D600FC067E /* TimelineViewController.swift */,
 			);
@@ -469,7 +469,7 @@
 				A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */,
 				A37847DF20713DFD007FE524 /* TweetKeywordMatcher.swift in Sources */,
 				A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */,
-				F55F141520714DA800FC067E /* KeywordsViewController.swift in Sources */,
+				F55F141520714DA800FC067E /* KeywordSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

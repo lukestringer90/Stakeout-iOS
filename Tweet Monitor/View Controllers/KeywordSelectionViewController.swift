@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchStringsViewController: UITableViewController {
+class KeywordSelectionViewController: UITableViewController {
     
     var keywords = [String]() {
         didSet {
