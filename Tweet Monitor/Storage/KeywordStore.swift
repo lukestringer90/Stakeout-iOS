@@ -9,21 +9,38 @@
 import Foundation
 
 class KeywordStore {
-    static let shared = KeywordStore()
-    fileprivate var storedKeywords = [String]()
+    private static let storageKey = "keywords"
+    
+    static let shared: KeywordStore = {
+        let store = KeywordStore()
+        store.storedTexts = {
+            if let stored = UserDefaults.standard.object(forKey: KeywordStore.storageKey) as? [String] {
+                return stored
+            }
+            return [String]()
+        }()
+        
+        return store
+    }()
+    
+    fileprivate var storedTexts = [String]() {
+        didSet {
+            UserDefaults.standard.set(storedTexts, forKey: KeywordStore.storageKey)
+        }
+    }
 }
 
 extension KeywordStore: KeywordStorage {
     func add(_ keyword: Keyword) {
-        storedKeywords.insert(keyword.text, at: keyword.index)
+        storedTexts.insert(keyword.text, at: keyword.index)
     }
     
     func remove(_ keyword: Keyword) {
-        storedKeywords.remove(at: keyword.index)
+        storedTexts.remove(at: keyword.index)
     }
     
     var keywords: [Keyword] {
-        return storedKeywords.enumerated().map { index, text in
+        return storedTexts.enumerated().map { index, text in
             return Keyword(text: text, index: index)
         }
     }
