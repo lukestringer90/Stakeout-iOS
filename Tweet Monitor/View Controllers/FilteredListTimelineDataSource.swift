@@ -21,7 +21,7 @@ class FilteredListTimelineDataSource: TWTRListTimelineDataSource {
 	override func loadPreviousTweets(beforePosition position: String?, completion: @escaping TWTRLoadTimelineCompletion) {
 		super.loadPreviousTweets(beforePosition: position) { (allTweets, cursor, error) in
 			
-			guard let tweets = allTweets else {
+			guard let tweets = allTweets, self.kewords.count > 0 else {
 				completion(allTweets, cursor, error)
 				return
 			}
