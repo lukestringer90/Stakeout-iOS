@@ -32,8 +32,6 @@ struct TweetIDStore: TweetIDStorage {
     func removeAll() {
         setStoredTweetIDs(nil)
     }
-    
-	
 }
 
 fileprivate extension TweetIDStore {

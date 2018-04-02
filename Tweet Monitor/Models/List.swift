@@ -9,7 +9,7 @@
 import Foundation
 import Swifter
 
-struct List {
+struct List: Codable {
     let id: Int
     let slug: String
     let name: String
@@ -21,5 +21,11 @@ extension List {
         get {
             return .slug(slug, owner: .screenName(ownerScreenName))
         }
+    }
+}
+
+extension List: Equatable {
+    static func == (lhs: List, rhs: List) -> Bool {
+        return lhs.id == rhs.id
     }
 }

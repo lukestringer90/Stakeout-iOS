@@ -9,10 +9,17 @@
 import UIKit
 import Swifter
 
+protocol ListStorage {
+    func add(_ list: List)
+    func remove()
+    var list: List? { get }
+}
+
 class ListSelectionViewController: UITableViewController {
     
+    var store: ListStorage? = ListStore.shared
+    
     var lists: [List]?
-    var selectedList: List?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,18 +61,29 @@ extension ListSelectionViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell")!
-        cell.textLabel?.text = lists![indexPath.row].name
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell"),
+            let list = lists?[indexPath.row]
+            else {
+                fatalError("Cannot setup list cell")
+        }
+        cell.textLabel?.text = list.name
+        if let storedList = store?.list {
+            cell.accessoryType = list == storedList ? .checkmark : .none
+        }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let list = lists?[indexPath.row] else { return }
-        selectedList = list
         
-        if let (slug, screenName) = list.listTag.slugAndOwnerScreenName() {
-            print("\(slug), \(screenName)")
+        let previousSelected = store?.list
+        store?.add(list)
+        
+        if previousSelected != nil, let index = lists?.index(of: previousSelected!) {
+            tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .automatic)
         }
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
 }

@@ -22,6 +22,7 @@
 		C931309D3E1A24962BD93F7F /* Pods_Tweet_Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */; };
 		F51929B92072BC18005ECA4E /* KeywordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51929B82072BC18005ECA4E /* KeywordStore.swift */; };
 		F51929BB2072C41B005ECA4E /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51929BA2072C41B005ECA4E /* Keyword.swift */; };
+		F51929BD2072CA81005ECA4E /* ListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51929BC2072CA81005ECA4E /* ListStorage.swift */; };
 		F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13E8206E65D600FC067E /* AppDelegate.swift */; };
 		F55F13EB206E65D600FC067E /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13EA206E65D600FC067E /* TimelineViewController.swift */; };
 		F55F13EE206E65D600FC067E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F55F13EC206E65D600FC067E /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		F3EEF0ADD85C32B8499EC53B /* Pods-Tweet MonitorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet MonitorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet MonitorTests/Pods-Tweet MonitorTests.release.xcconfig"; sourceTree = "<group>"; };
 		F51929B82072BC18005ECA4E /* KeywordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordStore.swift; sourceTree = "<group>"; };
 		F51929BA2072C41B005ECA4E /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
+		F51929BC2072CA81005ECA4E /* ListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStorage.swift; sourceTree = "<group>"; };
 		F55F13E5206E65D600FC067E /* Tweet Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tweet Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F13E8206E65D600FC067E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55F13EA206E65D600FC067E /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				F55F141B207155EC00FC067E /* TweetIDStore.swift */,
 				F51929B82072BC18005ECA4E /* KeywordStore.swift */,
+				F51929BC2072CA81005ECA4E /* ListStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37847E1207144C3007FE524 /* NotificationSender.swift in Sources */,
+				F51929BD2072CA81005ECA4E /* ListStorage.swift in Sources */,
 				A39409A0206FF7580095320F /* Constants.swift in Sources */,
 				F55F13EB206E65D600FC067E /* TimelineViewController.swift in Sources */,
 				A37847E320715D11007FE524 /* Tweet.swift in Sources */,
