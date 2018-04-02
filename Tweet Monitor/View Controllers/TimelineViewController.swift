@@ -16,33 +16,39 @@ class TimelineViewController: TWTRTimelineViewController {
 	var locationManager: BackgroundLocationManager!
 	
     var list: List?
-	let keywords = Constants.Keywords.whitespace
+    
+    // TODO: Make array of Keywords
+    var keywords: [String] {
+        get {
+            return keywordStore.keywords.map { $0.text }
+        }
+    }
+    let keywordStore = KeywordStore.shared
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
         setupMockData()
+        keywordStore.observer = self
 		
 		guard let session = TWTRTwitter.sharedInstance().sessionStore.session() else {
 			login()
 			return
 		}
 		
-		startWith(session: session)
+        Swifter.setup(from: session)
+		start()
 
 		TWTRTweetView.appearance().showActionButtons = false
 	}
-    
-    func setupMockData() {
-        let listTag = Constants.Twitter.List.sheffieldTravel
-        let (slug, screenName) = listTag.slugAndOwnerScreenName()!
-        
-        list = List(id: 0, slug: slug, name: slug, ownerScreenName: screenName)
-    }
 }
 
-fileprivate extension TimelineViewController {
-    @IBAction func unwind(_:UIStoryboardSegue) { }
+
+// MARK: - Storage Observance
+extension TimelineViewController: StoreObserver {
+    func store(_ store: KeywordStore, updated keywords: [Keyword]) {
+        start()
+    }
 }
 
 // MARK: - Setup
@@ -55,17 +61,18 @@ fileprivate extension TimelineViewController {
 				return
 			}
 			
-			self.startWith(session: session)
+            Swifter.setup(from: session)
+			self.start()
 		})
 	}
 	
-	func startWith(session: TWTRAuthSession) {
+	func start() {
         guard let selectedList = list else {
             showListSelection()
             return
         }
         
-		Swifter.setup(from: session)
+		
 		locationManager = BackgroundLocationManager(callback: locationUpdated)
         setupTimeline(with: selectedList)
 	}
@@ -83,10 +90,22 @@ fileprivate extension TimelineViewController {
 		title = slug
 	}
     
+    func setupMockData() {
+        let listTag = Constants.Twitter.List.verifiedAccounts
+        let (slug, screenName) = listTag.slugAndOwnerScreenName()!
+        
+        list = List(id: 0, slug: slug, name: slug, ownerScreenName: screenName)
+    }
+}
+
+// MARK: - Segues
+extension TimelineViewController {
     func showListSelection() {
         // TODO: Seque to list selection
         print("Show list selection")
     }
+    
+    @IBAction func unwind(_:UIStoryboardSegue) { }
 }
 
 // MARK: - Location updates

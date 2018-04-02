@@ -8,8 +8,14 @@
 
 import Foundation
 
+protocol StoreObserver {
+    func store(_ store: KeywordStore, updated keywords: [Keyword])
+}
+
 class KeywordStore {
     private static let storageKey = "keywords"
+    
+    var observer: StoreObserver?
     
     static let shared: KeywordStore = {
         let store = KeywordStore()
@@ -26,6 +32,7 @@ class KeywordStore {
     fileprivate var storedTexts = [String]() {
         didSet {
             UserDefaults.standard.set(storedTexts, forKey: KeywordStore.storageKey)
+            observer?.store(self, updated: keywords)
         }
     }
 }
