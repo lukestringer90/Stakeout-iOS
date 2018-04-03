@@ -13,7 +13,6 @@
 		A37847DA20713A05007FE524 /* BackgroundLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847D920713A05007FE524 /* BackgroundLocationManager.swift */; };
 		A37847DF20713DFD007FE524 /* TweetKeywordMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847DE20713DFD007FE524 /* TweetKeywordMatcher.swift */; };
 		A37847E1207144C3007FE524 /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847E0207144C3007FE524 /* NotificationSender.swift */; };
-		A37847E320715D11007FE524 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37847E220715D11007FE524 /* Tweet.swift */; };
 		A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */; };
 		A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940993206FCBED0095320F /* Swifter+Extensions.swift */; };
 		A394099A206FF0720095320F /* TweetText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3940999206FF0720095320F /* TweetText.swift */; };
@@ -21,7 +20,6 @@
 		A3F150812070177800144F68 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F150802070177700144F68 /* UserNotifications.framework */; };
 		C931309D3E1A24962BD93F7F /* Pods_Tweet_Monitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */; };
 		F51929B92072BC18005ECA4E /* KeywordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51929B82072BC18005ECA4E /* KeywordStore.swift */; };
-		F51929BB2072C41B005ECA4E /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51929BA2072C41B005ECA4E /* Keyword.swift */; };
 		F51929BD2072CA81005ECA4E /* ListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51929BC2072CA81005ECA4E /* ListStorage.swift */; };
 		F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13E8206E65D600FC067E /* AppDelegate.swift */; };
 		F55F13EB206E65D600FC067E /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13EA206E65D600FC067E /* TimelineViewController.swift */; };
@@ -31,8 +29,10 @@
 		F55F13FE206E65D700FC067E /* Tweet_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F13FD206E65D700FC067E /* Tweet_MonitorTests.swift */; };
 		F55F141520714DA800FC067E /* KeywordSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141220714DA800FC067E /* KeywordSelectionViewController.swift */; };
 		F55F141720714DA800FC067E /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141420714DA800FC067E /* ListSelectionViewController.swift */; };
-		F55F141A20714DFF00FC067E /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141920714DFF00FC067E /* List.swift */; };
 		F55F141C207155EC00FC067E /* TweetIDStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F141B207155EC00FC067E /* TweetIDStore.swift */; };
+		F58F48A32074155000D837E3 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F48A02074155000D837E3 /* Tweet.swift */; };
+		F58F48A42074155000D837E3 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F48A12074155000D837E3 /* List.swift */; };
+		F58F48A52074155000D837E3 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F48A22074155000D837E3 /* Keyword.swift */; };
 		F5A15E4620719D7D00BB4A99 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5A15E4520719D7D00BB4A99 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,6 @@
 		A37847D920713A05007FE524 /* BackgroundLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLocationManager.swift; sourceTree = "<group>"; };
 		A37847DE20713DFD007FE524 /* TweetKeywordMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetKeywordMatcher.swift; sourceTree = "<group>"; };
 		A37847E0207144C3007FE524 /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
-		A37847E220715D11007FE524 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		A3873379206EA8A70064886D /* FilteredListTimelineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredListTimelineDataSource.swift; sourceTree = "<group>"; };
 		A3940993206FCBED0095320F /* Swifter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Swifter+Extensions.swift"; sourceTree = "<group>"; };
 		A3940999206FF0720095320F /* TweetText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetText.swift; sourceTree = "<group>"; };
@@ -64,9 +63,8 @@
 		A3F150802070177700144F68 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		F3EEF0ADD85C32B8499EC53B /* Pods-Tweet MonitorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tweet MonitorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tweet MonitorTests/Pods-Tweet MonitorTests.release.xcconfig"; sourceTree = "<group>"; };
 		F51929B82072BC18005ECA4E /* KeywordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordStore.swift; sourceTree = "<group>"; };
-		F51929BA2072C41B005ECA4E /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		F51929BC2072CA81005ECA4E /* ListStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStorage.swift; sourceTree = "<group>"; };
-		F55F13E5206E65D600FC067E /* Tweet Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tweet Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F55F13E5206E65D600FC067E /* Stakeout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stakeout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55F13E8206E65D600FC067E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F55F13EA206E65D600FC067E /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		F55F13ED206E65D600FC067E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,8 +76,10 @@
 		F55F13FF206E65D700FC067E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F55F141220714DA800FC067E /* KeywordSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordSelectionViewController.swift; sourceTree = "<group>"; };
 		F55F141420714DA800FC067E /* ListSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
-		F55F141920714DFF00FC067E /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = "Tweet Monitor/Models/List.swift"; sourceTree = SOURCE_ROOT; };
 		F55F141B207155EC00FC067E /* TweetIDStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetIDStore.swift; sourceTree = "<group>"; };
+		F58F48A02074155000D837E3 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		F58F48A12074155000D837E3 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		F58F48A22074155000D837E3 /* Keyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		F5A15E4520719D7D00BB4A99 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		FB09851E4979587FCEB5471D /* Pods_Tweet_Monitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tweet_Monitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -205,7 +205,7 @@
 		F55F13E6206E65D600FC067E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F55F13E5206E65D600FC067E /* Tweet Monitor.app */,
+				F55F13E5206E65D600FC067E /* Stakeout.app */,
 				F55F13F9206E65D700FC067E /* Tweet MonitorTests.xctest */,
 			);
 			name = Products;
@@ -214,8 +214,8 @@
 		F55F13E7206E65D600FC067E /* Tweet Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				F58F489F2074155000D837E3 /* Models */,
 				F51929B72072BC02005ECA4E /* Storage */,
-				F55F141820714DEB00FC067E /* Models */,
 				A394099B206FF7010095320F /* View Controllers */,
 				A394099C206FF7090095320F /* Helpers */,
 				A37847DD20713DDA007FE524 /* Business Logic */,
@@ -234,15 +234,14 @@
 			path = "Tweet MonitorTests";
 			sourceTree = "<group>";
 		};
-		F55F141820714DEB00FC067E /* Models */ = {
+		F58F489F2074155000D837E3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F55F141920714DFF00FC067E /* List.swift */,
-				F51929BA2072C41B005ECA4E /* Keyword.swift */,
-				A37847E220715D11007FE524 /* Tweet.swift */,
+				F58F48A02074155000D837E3 /* Tweet.swift */,
+				F58F48A12074155000D837E3 /* List.swift */,
+				F58F48A22074155000D837E3 /* Keyword.swift */,
 			);
-			name = Models;
-			path = "New Group";
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +264,7 @@
 			);
 			name = "Tweet Monitor";
 			productName = "Tweet Monitor";
-			productReference = F55F13E5206E65D600FC067E /* Tweet Monitor.app */;
+			productReference = F55F13E5206E65D600FC067E /* Stakeout.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F55F13F8206E65D700FC067E /* Tweet MonitorTests */ = {
@@ -474,20 +473,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37847E1207144C3007FE524 /* NotificationSender.swift in Sources */,
+				F58F48A42074155000D837E3 /* List.swift in Sources */,
 				F51929BD2072CA81005ECA4E /* ListStorage.swift in Sources */,
+				F58F48A52074155000D837E3 /* Keyword.swift in Sources */,
 				A39409A0206FF7580095320F /* Constants.swift in Sources */,
 				F55F13EB206E65D600FC067E /* TimelineViewController.swift in Sources */,
-				A37847E320715D11007FE524 /* Tweet.swift in Sources */,
 				A394099A206FF0720095320F /* TweetText.swift in Sources */,
 				F55F13E9206E65D600FC067E /* AppDelegate.swift in Sources */,
-				F55F141A20714DFF00FC067E /* List.swift in Sources */,
+				F58F48A32074155000D837E3 /* Tweet.swift in Sources */,
 				F55F141C207155EC00FC067E /* TweetIDStore.swift in Sources */,
 				A37847DA20713A05007FE524 /* BackgroundLocationManager.swift in Sources */,
 				F55F141720714DA800FC067E /* ListSelectionViewController.swift in Sources */,
 				A3940994206FCBED0095320F /* Swifter+Extensions.swift in Sources */,
 				A37847DF20713DFD007FE524 /* TweetKeywordMatcher.swift in Sources */,
 				A387337A206EA8A70064886D /* FilteredListTimelineDataSource.swift in Sources */,
-				F51929BB2072C41B005ECA4E /* Keyword.swift in Sources */,
 				F51929B92072BC18005ECA4E /* KeywordStore.swift in Sources */,
 				F55F141520714DA800FC067E /* KeywordSelectionViewController.swift in Sources */,
 			);
@@ -648,7 +647,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Tweet Monitor/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.lukestringer.Tweet-Monitor";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Stakeout;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -664,7 +663,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Tweet Monitor/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.lukestringer.Tweet-Monitor";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Stakeout;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
