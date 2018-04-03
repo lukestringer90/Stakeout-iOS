@@ -8,8 +8,14 @@
 
 import Foundation
 
+protocol ListStoreObserver {
+    func store(_ store: ListStore, updated list: List?)
+}
+
 class ListStore {
     private static let storageKey = "list"
+    
+    var observer: ListStoreObserver?
     
     static let shared: ListStore = {
         let store = ListStore()
@@ -30,6 +36,7 @@ class ListStore {
         didSet {
             guard let encoded = try? JSONEncoder().encode(storedList) else { return }
             UserDefaults.standard.set(encoded, forKey: ListStore.storageKey)
+            observer?.store(self, updated: list)
         }
     }
 }

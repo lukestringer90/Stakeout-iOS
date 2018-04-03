@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol StoreObserver {
+protocol KeywordStoreObserver {
     func store(_ store: KeywordStore, updated keywords: [Keyword])
 }
 
 class KeywordStore {
     private static let storageKey = "keywords"
     
-    var observer: StoreObserver?
+    var observer: KeywordStoreObserver?
     
     static let shared: KeywordStore = {
         let store = KeywordStore()

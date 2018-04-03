@@ -15,7 +15,11 @@ class TimelineViewController: TWTRTimelineViewController {
 	
 	var locationManager: BackgroundLocationManager!
 	
-    var list: List?
+    var list: List? {
+        get {
+            return listStore.list
+        }
+    }
     
     // TODO: Make array of Keywords
     var keywords: [String] {
@@ -24,12 +28,13 @@ class TimelineViewController: TWTRTimelineViewController {
         }
     }
     let keywordStore = KeywordStore.shared
+    let listStore = ListStore.shared
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
-        setupMockData()
         keywordStore.observer = self
+        listStore.observer = self
 		
 		guard let session = TWTRTwitter.sharedInstance().sessionStore.session() else {
 			login()
@@ -45,8 +50,14 @@ class TimelineViewController: TWTRTimelineViewController {
 
 
 // MARK: - Storage Observance
-extension TimelineViewController: StoreObserver {
+extension TimelineViewController: KeywordStoreObserver {
     func store(_ store: KeywordStore, updated keywords: [Keyword]) {
+        start()
+    }
+}
+
+extension TimelineViewController: ListStoreObserver {
+    func store(_ store: ListStore, updated list: List?) {
         start()
     }
 }
@@ -90,12 +101,6 @@ fileprivate extension TimelineViewController {
 		title = slug
 	}
     
-    func setupMockData() {
-        let listTag = Constants.Twitter.List.verifiedAccounts
-        let (slug, screenName) = listTag.slugAndOwnerScreenName()!
-        
-        list = List(id: 0, slug: slug, name: slug, ownerScreenName: screenName)
-    }
 }
 
 // MARK: - Segues
