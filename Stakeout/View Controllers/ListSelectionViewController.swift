@@ -9,12 +9,6 @@
 import UIKit
 import Swifter
 
-protocol ListStorage {
-    func add(_ list: List)
-    func remove()
-    var list: List? { get }
-}
-
 class ListSelectionViewController: UITableViewController {
     
     var store: ListStorage? = ListStore.shared

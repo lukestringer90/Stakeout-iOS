@@ -24,7 +24,7 @@ class TimelineViewController: TWTRTimelineViewController {
     // TODO: Make array of Keywords
     var keywords: [String] {
         get {
-            return keywordStore.keywords.map { $0.text }
+            return keywordStore.all().map { $0.text }
         }
     }
     let keywordStore = KeywordStore.shared

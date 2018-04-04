@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Keyword {
+struct Keyword: Codable {
     let text: String
     let index: Int
 }

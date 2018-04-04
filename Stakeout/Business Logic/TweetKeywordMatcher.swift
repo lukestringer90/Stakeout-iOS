@@ -9,13 +9,6 @@
 import Foundation
 import Swifter
 
-protocol TweetIDStorage {
-	func add(_ tweetID: Tweet.ID)
-	func add(_ tweetIDs: [Tweet.ID])
-	func contains(_ tweetID: Tweet.ID) -> Bool
-	func removeAll()
-}
-
 struct TweetKeywordMatcher {
 	
 	let store: TweetIDStorage
