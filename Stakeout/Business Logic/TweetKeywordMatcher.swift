@@ -11,7 +11,7 @@ import Swifter
 
 struct TweetKeywordMatcher {
 	
-	let store: TweetIDStorage
+	let store: TweetIDStore
 	
 	enum Error: Swift.Error {
 		case invalidJSON
@@ -42,7 +42,6 @@ struct TweetKeywordMatcher {
 			}
 			let matching = unseenTweets.match(containingAnyOf: keywords)
 			
-			// Make a tweet object
 			self.store.add(matching.map { $0.id })
 			
 			completion(matching, nil)

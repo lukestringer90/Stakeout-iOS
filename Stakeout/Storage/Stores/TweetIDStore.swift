@@ -8,41 +8,32 @@
 
 import Foundation
 
-struct TweetIDStore: TweetIDStorage {
-    private static let tweetIDsKey = "TweetIDsKey"
-    static let shared = TweetIDStore()
-	
-	init() {
-		setStoredTweetIDs([])
-	}
-    
-    func add(_ tweetID: Tweet.ID) {
-        add([tweetID])
+extension Tweet.ID: Storable {
+    func encode() -> Data {
+        return "\(self)".data(using: .utf8)!
     }
     
-    func add(_ tweetIDs: [Tweet.ID]) {
-        let appended = stored + tweetIDs
-		setStoredTweetIDs(appended)
-    }
-    
-    func contains(_ tweetID: Tweet.ID) -> Bool {
-        return stored.contains(tweetID)
-    }
-    
-    func removeAll() {
-        setStoredTweetIDs(nil)
+    static func decode(from data: Data) -> Tweet.ID {
+        let string = String.init(data: data, encoding: .utf8)!
+        return Int(string)!
     }
 }
 
-fileprivate extension TweetIDStore {
-	var stored: [Tweet.ID] {
-		get {
-			guard let stored = UserDefaults.standard.array(forKey: TweetIDStore.tweetIDsKey) as? [Tweet.ID] else { fatalError("No sotrage for tweet IDs") }
-			return stored
-		}
-	}
-	
-	func setStoredTweetIDs(_ tweetsIDs: [Tweet.ID]?) {
-		UserDefaults.standard.set(tweetsIDs, forKey: TweetIDStore.tweetIDsKey)
-	}
+class TweetIDStore: Storage {
+    
+    typealias Entity = Tweet.ID
+    
+    static let shared = TweetIDStore()
+    
+    static var key: String {
+        return "tweetids"
+    }
+    
+    func contains(_ id: Tweet.ID) -> Bool {
+        return all().contains(id)
+    }
+    
+    func add(_ entities: [Tweet.ID]) {
+        entities.forEach { add($0) }
+    }
 }

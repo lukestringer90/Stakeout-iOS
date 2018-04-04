@@ -60,5 +60,9 @@ extension Storage {
         UserDefaults.standard.set(toStore, forKey: Self.key)
         didUpdate(to: all())
     }
-    
+}
+
+extension Storage {
+    // Optional function
+    func didUpdate(to entities: [Entity]) { }
 }

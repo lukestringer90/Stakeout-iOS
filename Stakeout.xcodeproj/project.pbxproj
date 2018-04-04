@@ -31,7 +31,6 @@
 		F58F49642075503200D837E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49532075503200D837E3 /* AppDelegate.swift */; };
 		F58F49672075505200D837E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58F49662075505200D837E3 /* Main.storyboard */; };
 		F58F496A2075517200D837E3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F58F49692075517200D837E3 /* Settings.bundle */; };
-		F58F496F207559C700D837E3 /* StorageProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F496E207559C700D837E3 /* StorageProtocols.swift */; };
 		F58F49712075627800D837E3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49702075627800D837E3 /* Storage.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +77,6 @@
 		F58F49532075503200D837E3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F58F49662075505200D837E3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F58F49692075517200D837E3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		F58F496E207559C700D837E3 /* StorageProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocols.swift; sourceTree = "<group>"; };
 		F58F49702075627800D837E3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +196,6 @@
 		F58F494A2075503200D837E3 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				F58F496E207559C700D837E3 /* StorageProtocols.swift */,
 				F58F49702075627800D837E3 /* Storage.swift */,
 				F58F496C2075599A00D837E3 /* Stores */,
 			);
@@ -486,7 +483,6 @@
 				F58F495E2075503200D837E3 /* SelectedListStore.swift in Sources */,
 				F58F495F2075503200D837E3 /* TweetIDStore.swift in Sources */,
 				F58F49582075503200D837E3 /* TweetKeywordMatcher.swift in Sources */,
-				F58F496F207559C700D837E3 /* StorageProtocols.swift in Sources */,
 				F58F495C2075503200D837E3 /* Keyword.swift in Sources */,
 				F58F49572075503200D837E3 /* NotificationSender.swift in Sources */,
 				F58F49642075503200D837E3 /* AppDelegate.swift in Sources */,
