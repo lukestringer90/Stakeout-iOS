@@ -9,7 +9,9 @@
 import Foundation
 
 protocol Storage {
-    associatedtype Entity
+    associatedtype Entity: Storable
+    
+    static var key: String { get }
     
     func add(_ entity: Entity)
     func remove(_ entity: Entity)
@@ -20,12 +22,11 @@ protocol Storage {
 
 
 protocol Storable {
-    static var key: String { get }
     func encode() -> Data
     static func decode(from data: Data) -> Self
 }
 
-extension Storage where Entity: Storable {
+extension Storage {
     
     func add(_ entity: Entity) {
         let toStore = allAsData() + [entity.encode()]
@@ -49,14 +50,14 @@ extension Storage where Entity: Storable {
     
     private func allAsData() -> [Data] {
         let allData: [Data] = {
-            guard let current = UserDefaults.standard.array(forKey: Entity.key) as? [Data] else { return [Data]() }
+            guard let current = UserDefaults.standard.array(forKey: Self.key) as? [Data] else { return [Data]() }
             return current
         }()
         return allData
     }
     
     private func setStored(_ toStore: [Data]) {
-        UserDefaults.standard.set(toStore, forKey: Entity.key)
+        UserDefaults.standard.set(toStore, forKey: Self.key)
         didUpdate(to: all())
     }
     

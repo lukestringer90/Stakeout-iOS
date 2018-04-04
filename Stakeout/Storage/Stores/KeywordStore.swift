@@ -13,10 +13,6 @@ protocol KeywordStoreObserver {
 }
 
 extension Keyword: Storable {
-    static var key: String {
-        return "keyword"
-    }
-    
     func encode() -> Data {
         return try! JSONEncoder().encode(self)
     }
@@ -27,6 +23,10 @@ extension Keyword: Storable {
 }
 
 class KeywordStore: Storage {
+    static var key: String {
+        return "keywords"
+    }
+    
     typealias Entity = Keyword
     
     var observer: KeywordStoreObserver?
