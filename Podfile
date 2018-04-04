@@ -1,17 +1,17 @@
-target 'Tweet Monitor' do
+target 'Stakeout' do
   use_frameworks!
 
   pod 'TwitterKit'
   pod 'Swifter', :git => 'https://github.com/mattdonnelly/Swifter.git', :tag => '2.1.0'
 
   plugin 'cocoapods-keys', {
-  :project => "Tweet Monitor",
+  :project => "Stakeout",
   :keys => [
     "TwitterConsumerKey",
     "TwitterConsumerSecret"
   ]}
 
-  target 'Tweet MonitorTests' do
+  target 'StakeoutTests' do
     inherit! :search_paths
   end
   
@@ -19,5 +19,5 @@ end
 
 post_install do | installer |
     require 'fileutils'
-    FileUtils.cp_r('Pods/Target Support Files/Pods-Tweet Monitor/Pods-Tweet Monitor-acknowledgements.plist', 'Tweet Monitor/Other/Settings.bundle/Code-Acknowledgements.plist', :remove_destination => true)
+    FileUtils.cp_r('Pods/Target Support Files/Pods-Stakeout/Pods-Stakeout-acknowledgements.plist', 'Stakeout/Other/Settings.bundle/Code-Acknowledgements.plist', :remove_destination => true)
 end
