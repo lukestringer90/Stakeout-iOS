@@ -8,12 +8,6 @@
 
 import Foundation
 
-protocol ListStorage {
-    func add(_ list: List)
-    func remove()
-    var list: List? { get }
-}
-
 protocol TweetIDStorage {
     func add(_ tweetID: Tweet.ID)
     func add(_ tweetIDs: [Tweet.ID])

@@ -11,7 +11,7 @@ import Swifter
 
 class ListSelectionViewController: UITableViewController {
     
-    var store: ListStorage? = ListStore.shared
+    var selectedListStore: SelectedListStore? = SelectedListStore.shared
     
     var lists: [List]?
     
@@ -62,21 +62,23 @@ extension ListSelectionViewController {
                 fatalError("Cannot setup list cell")
         }
         cell.textLabel?.text = list.name
-        if let storedList = store?.list {
+        if let storedList = selectedListStore?.list {
             cell.accessoryType = list == storedList ? .checkmark : .none
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let list = lists?[indexPath.row] else { return }
+        guard let selected = lists?[indexPath.row] else { return }
         
-        let previousSelected = store?.list
-        store?.add(list)
+        let previous = selectedListStore?.list
         
-        if previousSelected != nil, let index = lists?.index(of: previousSelected!) {
+        selectedListStore?.replace(with: selected)
+        
+        if let previousSelected = previous, let index = lists?.index(of: previousSelected) {
             tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .automatic)
         }
+        
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     

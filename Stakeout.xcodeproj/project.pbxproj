@@ -22,7 +22,7 @@
 		F58F495B2075503200D837E3 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49482075503200D837E3 /* List.swift */; };
 		F58F495C2075503200D837E3 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49492075503200D837E3 /* Keyword.swift */; };
 		F58F495D2075503200D837E3 /* KeywordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494B2075503200D837E3 /* KeywordStore.swift */; };
-		F58F495E2075503200D837E3 /* ListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494C2075503200D837E3 /* ListStorage.swift */; };
+		F58F495E2075503200D837E3 /* SelectedListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494C2075503200D837E3 /* SelectedListStore.swift */; };
 		F58F495F2075503200D837E3 /* TweetIDStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494D2075503200D837E3 /* TweetIDStore.swift */; };
 		F58F49602075503200D837E3 /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494F2075503200D837E3 /* ListSelectionViewController.swift */; };
 		F58F49612075503200D837E3 /* FilteredListTimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49502075503200D837E3 /* FilteredListTimelineDataSource.swift */; };
@@ -69,7 +69,7 @@
 		F58F49482075503200D837E3 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		F58F49492075503200D837E3 /* Keyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		F58F494B2075503200D837E3 /* KeywordStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordStore.swift; sourceTree = "<group>"; };
-		F58F494C2075503200D837E3 /* ListStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListStorage.swift; sourceTree = "<group>"; };
+		F58F494C2075503200D837E3 /* SelectedListStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedListStore.swift; sourceTree = "<group>"; };
 		F58F494D2075503200D837E3 /* TweetIDStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetIDStore.swift; sourceTree = "<group>"; };
 		F58F494F2075503200D837E3 /* ListSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
 		F58F49502075503200D837E3 /* FilteredListTimelineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredListTimelineDataSource.swift; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				F58F494B2075503200D837E3 /* KeywordStore.swift */,
-				F58F494C2075503200D837E3 /* ListStorage.swift */,
+				F58F494C2075503200D837E3 /* SelectedListStore.swift */,
 				F58F494D2075503200D837E3 /* TweetIDStore.swift */,
 			);
 			path = Stores;
@@ -483,7 +483,7 @@
 				F58F49542075503200D837E3 /* Constants.swift in Sources */,
 				F58F49612075503200D837E3 /* FilteredListTimelineDataSource.swift in Sources */,
 				F58F49632075503200D837E3 /* KeywordSelectionViewController.swift in Sources */,
-				F58F495E2075503200D837E3 /* ListStorage.swift in Sources */,
+				F58F495E2075503200D837E3 /* SelectedListStore.swift in Sources */,
 				F58F495F2075503200D837E3 /* TweetIDStore.swift in Sources */,
 				F58F49582075503200D837E3 /* TweetKeywordMatcher.swift in Sources */,
 				F58F496F207559C700D837E3 /* StorageProtocols.swift in Sources */,

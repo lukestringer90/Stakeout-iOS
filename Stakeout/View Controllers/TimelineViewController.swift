@@ -17,7 +17,7 @@ class TimelineViewController: TWTRTimelineViewController {
 	
     var list: List? {
         get {
-            return listStore.list
+            return selectedListStore.list
         }
     }
     
@@ -28,13 +28,13 @@ class TimelineViewController: TWTRTimelineViewController {
         }
     }
     let keywordStore = KeywordStore.shared
-    let listStore = ListStore.shared
+    let selectedListStore = SelectedListStore.shared
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
         keywordStore.observer = self
-        listStore.observer = self
+        selectedListStore.observer = self
 		
 		guard let session = TWTRTwitter.sharedInstance().sessionStore.session() else {
 			login()
@@ -57,7 +57,7 @@ extension TimelineViewController: KeywordStoreObserver {
 }
 
 extension TimelineViewController: ListStoreObserver {
-    func store(_ store: ListStore, updated list: List?) {
+    func store(_ store: SelectedListStore, updated list: List?) {
         start()
     }
 }
