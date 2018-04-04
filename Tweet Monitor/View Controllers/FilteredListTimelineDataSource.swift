@@ -15,13 +15,13 @@ class FilteredListTimelineDataSource: TWTRListTimelineDataSource {
 	
 	init(listSlug: String, listOwnerScreenName: String, matching: [String], apiClient client: TWTRAPIClient) {
 		self.kewords = matching
-		super.init(listID: nil, listSlug: listSlug, listOwnerScreenName: listOwnerScreenName, apiClient: client, maxTweetsPerRequest: 0, includeRetweets: true)
+		super.init(listID: nil, listSlug: listSlug, listOwnerScreenName: listOwnerScreenName, apiClient: client, maxTweetsPerRequest: UInt(Constants.tweetsPerRequest), includeRetweets: true)
 	}
 	
 	override func loadPreviousTweets(beforePosition position: String?, completion: @escaping TWTRLoadTimelineCompletion) {
 		super.loadPreviousTweets(beforePosition: position) { (allTweets, cursor, error) in
 			
-			guard let tweets = allTweets else {
+			guard let tweets = allTweets, self.kewords.count > 0 else {
 				completion(allTweets, cursor, error)
 				return
 			}

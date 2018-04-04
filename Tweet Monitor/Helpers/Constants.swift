@@ -11,15 +11,33 @@ import Swifter
 
 struct Constants {
 	
+	static let tweetsPerRequest = 10
+	
 	struct Twitter {
 		
 		static let lukestringer90 = UserTag.screenName("lukestringer90")
+        static let  kem_sorrell = UserTag.screenName("kem_sorrell")
 		
-		static var travelList: ListTag = {
-			return ListTag.slug("TweetMonitorTest", owner: lukestringer90)
-		}()
+        struct List {
+            static var sheffieldTravel: ListTag = {
+                return ListTag.slug("Travel", owner: lukestringer90)
+            }()
+            
+            static var tweetMonitorTest: ListTag = {
+                return ListTag.slug("TweetMonitorTest", owner: lukestringer90)
+            }()
+            
+            static var verifiedAccounts: ListTag = {
+                return ListTag.slug("verified-accounts", owner: kem_sorrell)
+            }()
+        }
 	}
-	
-	static let tweetSearchStrings = ["circle", "bakerloo"]
+    
+    struct Keywords {
+        static let whitespace = [" "]
+        static let tram = ["malin bridge", "city hall"]
+		static let sheffield = ["sheffield"]
+        static let tube = ["circle", "bakerloo"]
+    }
 	
 }
