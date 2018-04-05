@@ -1,4 +1,8 @@
-![](Assets/icon-readme.png)
+<p align="center">
+    <img src="./Assets/icon-readme.png" alt="Stakeout for iOS" />
+</p>
+
+---
 
 **Stakeout**, *noun* 
 
