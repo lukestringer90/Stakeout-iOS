@@ -25,7 +25,7 @@ class ListSelectionViewController: UITableViewController {
 extension ListSelectionViewController {
     
     func getLists(for user: UserTag) {
-        Swifter.shared().getOwnedLists(for: user, count: nil, cursor: nil, success: { json, _, _ in
+        Swifter.shared().getSubscribedLists(reverse: false, success: { json in
             self.lists = json.array?.compactMap { object -> List? in
                 guard
                     let id = object["id"].integer,
