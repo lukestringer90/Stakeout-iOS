@@ -23,7 +23,7 @@
 		F58F495C2075503200D837E3 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49492075503200D837E3 /* Keyword.swift */; };
 		F58F495D2075503200D837E3 /* KeywordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494B2075503200D837E3 /* KeywordStore.swift */; };
 		F58F495E2075503200D837E3 /* SelectedListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494C2075503200D837E3 /* SelectedListStore.swift */; };
-		F58F495F2075503200D837E3 /* TweetIDStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494D2075503200D837E3 /* TweetIDStore.swift */; };
+		F58F495F2075503200D837E3 /* TweetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494D2075503200D837E3 /* TweetStore.swift */; };
 		F58F49602075503200D837E3 /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494F2075503200D837E3 /* ListSelectionViewController.swift */; };
 		F58F49612075503200D837E3 /* FilteredListTimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49502075503200D837E3 /* FilteredListTimelineDataSource.swift */; };
 		F58F49622075503200D837E3 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49512075503200D837E3 /* TimelineViewController.swift */; };
@@ -69,7 +69,7 @@
 		F58F49492075503200D837E3 /* Keyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		F58F494B2075503200D837E3 /* KeywordStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordStore.swift; sourceTree = "<group>"; };
 		F58F494C2075503200D837E3 /* SelectedListStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedListStore.swift; sourceTree = "<group>"; };
-		F58F494D2075503200D837E3 /* TweetIDStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetIDStore.swift; sourceTree = "<group>"; };
+		F58F494D2075503200D837E3 /* TweetStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetStore.swift; sourceTree = "<group>"; };
 		F58F494F2075503200D837E3 /* ListSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
 		F58F49502075503200D837E3 /* FilteredListTimelineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredListTimelineDataSource.swift; sourceTree = "<group>"; };
 		F58F49512075503200D837E3 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 			children = (
 				F58F494B2075503200D837E3 /* KeywordStore.swift */,
 				F58F494C2075503200D837E3 /* SelectedListStore.swift */,
-				F58F494D2075503200D837E3 /* TweetIDStore.swift */,
+				F58F494D2075503200D837E3 /* TweetStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -481,7 +481,7 @@
 				F58F49612075503200D837E3 /* FilteredListTimelineDataSource.swift in Sources */,
 				F58F49632075503200D837E3 /* KeywordSelectionViewController.swift in Sources */,
 				F58F495E2075503200D837E3 /* SelectedListStore.swift in Sources */,
-				F58F495F2075503200D837E3 /* TweetIDStore.swift in Sources */,
+				F58F495F2075503200D837E3 /* TweetStore.swift in Sources */,
 				F58F49582075503200D837E3 /* TweetKeywordMatcher.swift in Sources */,
 				F58F495C2075503200D837E3 /* Keyword.swift in Sources */,
 				F58F49572075503200D837E3 /* NotificationSender.swift in Sources */,
@@ -640,7 +640,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7F3D3W6BZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Stakeout/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -658,7 +660,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7F3D3W6BZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Stakeout/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -122,7 +122,7 @@ fileprivate extension TimelineViewController {
             return
         }
 		
-        let matcher = TweetKeywordMatcher(store: TweetIDStore.shared)
+        let matcher = TweetKeywordMatcher(store: TweetStore.shared)
         
 		matcher.requestTweets(in: selectedList.listTag, withTextContainingAnyOf: keywords) { possibleMatching, error in
 			guard let matching = possibleMatching else {

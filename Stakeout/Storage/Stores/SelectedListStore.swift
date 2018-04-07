@@ -24,26 +24,27 @@ extension List: Storable {
     
 }
 
-class SelectedListStore: Storage {
-    static var key: String {
-        return "selected-list"
-    }
-    
-    typealias Entity = List
-    
+class SelectedListStore {
+	
     var observer: ListStoreObserver?
     static let shared = SelectedListStore()
-    
-    func didUpdate(to entities: [Entity]) {
-        observer?.store(self, updated: entities.first)
-    }
     
     var list: List? {
         return all().first
     }
-    
-    func replace(with list: List) {
-        reset()
-        add(list)
-    }
+}
+
+extension SelectedListStore: Storage {
+	static var key = "selected-list"
+	
+	typealias Entity = List
+	
+	func replace(with list: List) {
+		reset()
+		add(list)
+	}
+	
+	func didUpdate(to entities: [Entity]) {
+		observer?.store(self, updated: entities.first)
+	}
 }

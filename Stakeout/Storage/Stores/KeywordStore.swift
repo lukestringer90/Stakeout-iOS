@@ -22,15 +22,16 @@ extension Keyword: Storable {
     }
 }
 
-class KeywordStore: Storage {
-    static var key: String {
-        return "keywords"
-    }
+class KeywordStore {
+	var observer: KeywordStoreObserver?
+	static let shared = KeywordStore()
+}
+
+
+extension KeywordStore: Storage {
+    static var key = "keywords"
     
     typealias Entity = Keyword
-    
-    var observer: KeywordStoreObserver?
-    static let shared = KeywordStore()
     
     func didUpdate(to entities: [Entity]) {
         observer?.store(self, updated: entities)
