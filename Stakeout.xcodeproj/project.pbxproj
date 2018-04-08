@@ -22,8 +22,8 @@
 		F58F495B2075503200D837E3 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49482075503200D837E3 /* List.swift */; };
 		F58F495C2075503200D837E3 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49492075503200D837E3 /* Keyword.swift */; };
 		F58F495D2075503200D837E3 /* KeywordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494B2075503200D837E3 /* KeywordStore.swift */; };
-		F58F495E2075503200D837E3 /* ListStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494C2075503200D837E3 /* ListStorage.swift */; };
-		F58F495F2075503200D837E3 /* TweetIDStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494D2075503200D837E3 /* TweetIDStore.swift */; };
+		F58F495E2075503200D837E3 /* SelectedListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494C2075503200D837E3 /* SelectedListStore.swift */; };
+		F58F495F2075503200D837E3 /* TweetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494D2075503200D837E3 /* TweetStore.swift */; };
 		F58F49602075503200D837E3 /* ListSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F494F2075503200D837E3 /* ListSelectionViewController.swift */; };
 		F58F49612075503200D837E3 /* FilteredListTimelineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49502075503200D837E3 /* FilteredListTimelineDataSource.swift */; };
 		F58F49622075503200D837E3 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49512075503200D837E3 /* TimelineViewController.swift */; };
@@ -31,6 +31,7 @@
 		F58F49642075503200D837E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49532075503200D837E3 /* AppDelegate.swift */; };
 		F58F49672075505200D837E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58F49662075505200D837E3 /* Main.storyboard */; };
 		F58F496A2075517200D837E3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F58F49692075517200D837E3 /* Settings.bundle */; };
+		F58F49712075627800D837E3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58F49702075627800D837E3 /* Storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +68,8 @@
 		F58F49482075503200D837E3 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		F58F49492075503200D837E3 /* Keyword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		F58F494B2075503200D837E3 /* KeywordStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordStore.swift; sourceTree = "<group>"; };
-		F58F494C2075503200D837E3 /* ListStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListStorage.swift; sourceTree = "<group>"; };
-		F58F494D2075503200D837E3 /* TweetIDStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetIDStore.swift; sourceTree = "<group>"; };
+		F58F494C2075503200D837E3 /* SelectedListStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedListStore.swift; sourceTree = "<group>"; };
+		F58F494D2075503200D837E3 /* TweetStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetStore.swift; sourceTree = "<group>"; };
 		F58F494F2075503200D837E3 /* ListSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSelectionViewController.swift; sourceTree = "<group>"; };
 		F58F49502075503200D837E3 /* FilteredListTimelineDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteredListTimelineDataSource.swift; sourceTree = "<group>"; };
 		F58F49512075503200D837E3 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		F58F49532075503200D837E3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F58F49662075505200D837E3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F58F49692075517200D837E3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F58F49702075627800D837E3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,9 +196,8 @@
 		F58F494A2075503200D837E3 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				F58F494B2075503200D837E3 /* KeywordStore.swift */,
-				F58F494C2075503200D837E3 /* ListStorage.swift */,
-				F58F494D2075503200D837E3 /* TweetIDStore.swift */,
+				F58F49702075627800D837E3 /* Storage.swift */,
+				F58F496C2075599A00D837E3 /* Stores */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -232,6 +233,16 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		F58F496C2075599A00D837E3 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				F58F494B2075503200D837E3 /* KeywordStore.swift */,
+				F58F494C2075503200D837E3 /* SelectedListStore.swift */,
+				F58F494D2075503200D837E3 /* TweetStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,8 +274,6 @@
 				F58F48C120754F9A00D837E3 /* Sources */,
 				F58F48C220754F9A00D837E3 /* Frameworks */,
 				F58F48C320754F9A00D837E3 /* Resources */,
-				82B00328FF3E906A468F6C5A /* [CP] Embed Pods Frameworks */,
-				2F611C49D3E9D6C070A4865F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -341,21 +350,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F611C49D3E9D6C070A4865F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StakeoutTests/Pods-StakeoutTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5A8CEDA6B42D127FA91E11A9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -365,34 +359,15 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Stakeout/Pods-Stakeout-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
 				"${BUILT_PRODUCTS_DIR}/Swifter/Swifter.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swifter.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stakeout/Pods-Stakeout-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		82B00328FF3E906A468F6C5A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StakeoutTests/Pods-StakeoutTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		86BDAFAF461657346615AF64 /* [CP] Copy Pods Resources */ = {
@@ -461,6 +436,7 @@
 				F58F49602075503200D837E3 /* ListSelectionViewController.swift in Sources */,
 				F58F49592075503200D837E3 /* BackgroundLocationManager.swift in Sources */,
 				F58F495B2075503200D837E3 /* List.swift in Sources */,
+				F58F49712075627800D837E3 /* Storage.swift in Sources */,
 				F58F49562075503200D837E3 /* TweetText.swift in Sources */,
 				F58F495D2075503200D837E3 /* KeywordStore.swift in Sources */,
 				F58F49552075503200D837E3 /* Swifter+Extensions.swift in Sources */,
@@ -468,8 +444,8 @@
 				F58F49542075503200D837E3 /* Constants.swift in Sources */,
 				F58F49612075503200D837E3 /* FilteredListTimelineDataSource.swift in Sources */,
 				F58F49632075503200D837E3 /* KeywordSelectionViewController.swift in Sources */,
-				F58F495E2075503200D837E3 /* ListStorage.swift in Sources */,
-				F58F495F2075503200D837E3 /* TweetIDStore.swift in Sources */,
+				F58F495E2075503200D837E3 /* SelectedListStore.swift in Sources */,
+				F58F495F2075503200D837E3 /* TweetStore.swift in Sources */,
 				F58F49582075503200D837E3 /* TweetKeywordMatcher.swift in Sources */,
 				F58F495C2075503200D837E3 /* Keyword.swift in Sources */,
 				F58F49572075503200D837E3 /* NotificationSender.swift in Sources */,
@@ -628,11 +604,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7F3D3W6BZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Stakeout/Other/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.lukestringer.Stakeout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -646,11 +621,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C7F3D3W6BZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Stakeout/Other/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.lukestringer.Stakeout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -666,11 +640,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StakeoutTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.lukestringer.StakeoutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -687,11 +657,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StakeoutTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.lukestringer.StakeoutTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

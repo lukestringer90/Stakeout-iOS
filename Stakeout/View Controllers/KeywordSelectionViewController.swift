@@ -8,16 +8,10 @@
 
 import UIKit
 
-protocol KeywordStorage {
-    func add(_ keyword: Keyword)
-    func remove(_ keyword: Keyword)
-    var keywords: [Keyword] { get }
-}
-
-extension KeywordStorage {
+extension KeywordStore {
     var sortedKeywords: [Keyword] {
         get {
-            return keywords.sorted()
+            return all().sorted()
         }
     }
     
@@ -27,7 +21,7 @@ extension KeywordStorage {
 }
 
 class KeywordSelectionViewController: UITableViewController {
-    var store: KeywordStorage? = KeywordStore.shared
+    var store = KeywordStore.shared
 }
 
 // MARK: Actions
@@ -38,9 +32,9 @@ extension KeywordSelectionViewController {
         alert.addTextField()
         let done = UIAlertAction(title: "Done", style: .default) { action in
             guard
-                let text = alert.textFields?.first?.text,
-                let endIndex = self.store?.keywords.count
+                let text = alert.textFields?.first?.text
                 else { return }
+            let endIndex = self.store.all().count
             let keyword = Keyword(text: text, index: endIndex)
             self.add(keyword: keyword)
         }
@@ -58,13 +52,13 @@ extension KeywordSelectionViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store?.sortedKeywords.count ?? 0
+        return store.sortedKeywords.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "KeywordCell"),
-            let text = store?.keyword(at: indexPath.row)?.text
+            let text = store.keyword(at: indexPath.row)?.text
             else {
                 fatalError("Cannot setup keyword cell")
         }
@@ -73,7 +67,7 @@ extension KeywordSelectionViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete, let keyword = store?.keywords[indexPath.row] else { return }
+        guard editingStyle == .delete, let keyword = store.keyword(at: indexPath.row) else { return }
         
         remove(keyword: keyword)
     }
@@ -87,12 +81,12 @@ extension KeywordSelectionViewController {
 extension KeywordSelectionViewController {
     
     func add(keyword: Keyword) {
-        store?.add(keyword)
+        store.add(keyword)
         self.tableView.reloadSections([0], with: .automatic)
     }
     
     func remove(keyword: Keyword) {
-        store?.remove(keyword)
+        store.remove(keyword)
         self.tableView.reloadSections([0], with: .automatic)
     }
     

@@ -1,14 +1,20 @@
 PODS:
   - Keys (1.0.0)
   - Swifter (2.1.0)
-  - TwitterCore (3.1.0)
-  - TwitterKit (3.3.0):
-    - TwitterCore (>= 3.1.0)
+  - TwitterCore (3.0.3)
+  - TwitterKit (3.2.2):
+    - TwitterCore (>= 3.0.3)
 
 DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
   - Swifter (from `https://github.com/mattdonnelly/Swifter.git`, tag `2.1.0`)
-  - TwitterKit
+  - TwitterCore (< 3.1.0)
+  - TwitterKit (< 3.3.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - TwitterCore
+    - TwitterKit
 
 EXTERNAL SOURCES:
   Keys:
@@ -25,9 +31,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Keys: af65e23feef2a047b3277b1ef0399f1209ef9d46
   Swifter: bbf4ebde56c9f8c13e6c7270bf6841a5f29dfda3
-  TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
-  TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
+  TwitterCore: 549c74ed5f3d6134392dc944c6d215e233e50ad8
+  TwitterKit: b9feccfc70bef86fe389c06a63a72fed9f020b9c
 
-PODFILE CHECKSUM: 6e5836336eab43c20b45516ae47e56f61213767c
+PODFILE CHECKSUM: b246fd5facdc6273b65e250a8b639a36ec664409
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

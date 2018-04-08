@@ -8,9 +8,17 @@
 
 import Foundation
 
-struct Tweet: TweetText {
-	typealias ID = Int
-	
-	let id: Tweet.ID
+struct Tweet: TweetText, Codable {
+	let id: Int
 	let text: String
+}
+
+extension Tweet: Comparable {
+	static func < (lhs: Tweet, rhs: Tweet) -> Bool {
+		return lhs.id < rhs.id
+	}
+	
+	static func == (lhs: Tweet, rhs: Tweet) -> Bool {
+		return lhs.id == rhs.id
+	}
 }

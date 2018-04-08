@@ -9,16 +9,9 @@
 import Foundation
 import Swifter
 
-protocol TweetIDStorage {
-	func add(_ tweetID: Tweet.ID)
-	func add(_ tweetIDs: [Tweet.ID])
-	func contains(_ tweetID: Tweet.ID) -> Bool
-	func removeAll()
-}
-
 struct TweetKeywordMatcher {
 	
-	let store: TweetIDStorage
+	let store: TweetStore
 	
 	enum Error: Swift.Error {
 		case invalidJSON
@@ -37,8 +30,8 @@ struct TweetKeywordMatcher {
 			
 			let unseenTweets = tweetsJSON
 				.filter { json in
-					guard let tweetID = json["id"].integer else { return false }
-					return !self.store.contains(tweetID)
+					guard let id = json["id"].integer else { return false }
+					return !self.store.containsTweet(with: id)
 				}
 				.compactMap { json -> Tweet? in
 					guard
@@ -49,8 +42,7 @@ struct TweetKeywordMatcher {
 			}
 			let matching = unseenTweets.match(containingAnyOf: keywords)
 			
-			// Make a tweet object
-			self.store.add(matching.map { $0.id })
+			self.store.add(matching)
 			
 			completion(matching, nil)
 			

@@ -9,15 +9,9 @@
 import UIKit
 import Swifter
 
-protocol ListStorage {
-    func add(_ list: List)
-    func remove()
-    var list: List? { get }
-}
-
 class ListSelectionViewController: UITableViewController {
     
-    var store: ListStorage? = ListStore.shared
+    var selectedListStore: SelectedListStore? = SelectedListStore.shared
     
     var lists: [List]?
     
@@ -31,7 +25,7 @@ class ListSelectionViewController: UITableViewController {
 extension ListSelectionViewController {
     
     func getLists(for user: UserTag) {
-        Swifter.shared().getOwnedLists(for: user, count: nil, cursor: nil, success: { json, _, _ in
+        Swifter.shared().getSubscribedLists(reverse: false, success: { json in
             self.lists = json.array?.compactMap { object -> List? in
                 guard
                     let id = object["id"].integer,
@@ -68,21 +62,23 @@ extension ListSelectionViewController {
                 fatalError("Cannot setup list cell")
         }
         cell.textLabel?.text = list.name
-        if let storedList = store?.list {
+        if let storedList = selectedListStore?.list {
             cell.accessoryType = list == storedList ? .checkmark : .none
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let list = lists?[indexPath.row] else { return }
+        guard let selected = lists?[indexPath.row] else { return }
         
-        let previousSelected = store?.list
-        store?.add(list)
+        let previous = selectedListStore?.list
         
-        if previousSelected != nil, let index = lists?.index(of: previousSelected!) {
+        selectedListStore?.replace(with: selected)
+        
+        if let previousSelected = previous, let index = lists?.index(of: previousSelected) {
             tableView.reloadRows(at: [IndexPath(item: index, section: 0)], with: .automatic)
         }
+        
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
