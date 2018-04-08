@@ -36,7 +36,7 @@ class TimelineViewController: TWTRTimelineViewController {
 		keywordStore.observer = self
 		selectedListStore.observer = self
 		
-		guard let session = TWTRTwitter.sharedInstance().sessionStore.session() else {
+		guard let session = Twitter.sharedInstance().sessionStore.session() else {
 			login()
 			return
 		}
@@ -65,7 +65,7 @@ extension TimelineViewController: ListStoreObserver {
 // MARK: - Setup
 fileprivate extension TimelineViewController {
 	func login() {
-		TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
+		Twitter.sharedInstance().logIn(completion: { (session, error) in
 			guard let session = session else {
 				let alert = UIAlertController(title: "Login Error", message: error?.localizedDescription, preferredStyle: .alert)
 				let action = UIAlertAction(title: "Try Again", style: .default, handler: { _ in
