@@ -34,16 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9Ln-rd-tWJ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ln-rd-tWJ" id="HUT-9y-4pm">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="unA-pw-YfH" id="UdI-Mw-uV6"/>
                             <outlet property="delegate" destination="unA-pw-YfH" id="un3-tC-DBh"/>
@@ -162,7 +152,7 @@
                                 <segue destination="l4O-Ny-Iqd" kind="unwind" unwindAction="unwind:" id="UyC-8I-Jty"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="RhT-ME-vnU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="RhT-ME-vnU">
                             <connections>
                                 <action selector="addTapped:" destination="Ppn-hW-ukk" id="HAy-di-y6E"/>
                             </connections>
