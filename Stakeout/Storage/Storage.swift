@@ -25,6 +25,12 @@ protocol Storage {
 	func add(_ entity: Entity)
 	
 	
+	/// Add multiple entities into storage
+	///
+	/// - Parameter entities: The entities to to store.
+	func add(_ entities: [Entity])
+	
+	
 	/// Remove an entity from storage if it exists.
 	///
 	/// - Parameter entity: The entity to remove from storage.
@@ -51,7 +57,6 @@ protocol Storage {
 /// Conform to the Storage protocol to facilitate encoding a type for storage, and decoding a type back out of storage.
 protocol Storable {
 	
-	
 	/// Encode a type into data ready for storage.
 	///
 	/// - Returns: A data representation of the type.
@@ -70,8 +75,14 @@ protocol Storable {
 extension Storage {
 	
 	func add(_ entity: Entity) {
+		// TODO: Disallow adding entity twice?
+		// Need a unique key / entity is hashable if so
 		let toStore = allAsData() + [entity.encode()]
 		setStored(toStore)
+	}
+	
+	func add(_ entities: [Entity]) {
+		entities.forEach { add($0) }
 	}
 	
 	func remove(_ entity: Entity) {

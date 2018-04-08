@@ -27,10 +27,6 @@ class TweetStore {
 	func containsTweet(with id: Int) -> Bool {
 		return all().contains(where: { $0.id == id })
 	}
-	
-	func add(_ entities: [Tweet]) {
-		entities.forEach { add($0) }
-	}
 }
 
 extension TweetStore: Storage {
