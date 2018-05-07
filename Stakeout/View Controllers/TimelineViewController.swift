@@ -30,6 +30,8 @@ class TimelineViewController: TWTRTimelineViewController {
 	let keywordStore = KeywordStore.shared
 	let selectedListStore = SelectedListStore.shared
 	
+	var listSelectionNavController: UINavigationController!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -110,11 +112,23 @@ fileprivate extension TimelineViewController {
 // MARK: - Segues
 extension TimelineViewController {
 	func showListSelection() {
-		// TODO: Seque to list selection
-		print("Show list selection")
+		guard let listSelection = storyboard?.instantiateViewController(withIdentifier: "ListSelection") else {
+			fatalError("Cannot instantiate list selection view controller")
+		}
+		listSelectionNavController = UINavigationController(rootViewController: listSelection)
+		let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(listSelectionDone))
+		listSelection.navigationItem.leftBarButtonItem = doneButton
+		present(listSelectionNavController, animated: true, completion: nil)
 	}
 	
 	@IBAction func unwind(_:UIStoryboardSegue) { }
+	
+	@objc func listSelectionDone() {
+		if selectedListStore.list != nil {
+			dismiss(animated: true, completion: nil)
+			start()
+		}
+	}
 }
 
 // MARK: - Location updates
