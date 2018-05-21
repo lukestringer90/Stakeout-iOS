@@ -10,6 +10,7 @@ import UIKit
 import TwitterKit
 import Swifter
 import CoreLocation
+import SafariServices
 
 class TimelineViewController: TWTRTimelineViewController {
 	
@@ -104,6 +105,8 @@ fileprivate extension TimelineViewController {
 													listOwnerScreenName: screenName,
 													matching: keywords,
 													apiClient: TWTRAPIClient())
+		
+		tweetViewDelegate = self
 		title = slug
 	}
 	
@@ -155,5 +158,16 @@ fileprivate extension TimelineViewController {
 				self.refresh()
 			}
 		}
+	}
+}
+
+// MARK: - Tweet View Delegate
+extension TimelineViewController: TWTRTweetViewDelegate {
+	func tweetView(_ tweetView: TWTRTweetView, didTap url: URL) {
+		let config = SFSafariViewController.Configuration()
+		config.barCollapsingEnabled = true
+		let vc = SFSafariViewController(url: url, configuration: config)
+		vc.dismissButtonStyle = .done
+		present(vc, animated: true, completion: nil)
 	}
 }

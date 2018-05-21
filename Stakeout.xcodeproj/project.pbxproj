@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		790274C91C924CBC8899D8F0 /* Pods_Stakeout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7A0B898F590A14BFFE58C8 /* Pods_Stakeout.framework */; };
+		A31EE49520A4B85600AAA4DA /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31EE49420A4B85600AAA4DA /* SafariServices.framework */; };
 		D618F58D64EE4C0D147860D2 /* Pods_StakeoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B887502858A0DCC239E2BFCC /* Pods_StakeoutTests.framework */; };
 		F58F48BC20754F9A00D837E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F58F48BB20754F9A00D837E3 /* Assets.xcassets */; };
 		F58F48BF20754F9A00D837E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58F48BD20754F9A00D837E3 /* LaunchScreen.storyboard */; };
@@ -48,6 +49,7 @@
 		4A31AF23CCC7D564D95B8254 /* Pods-StakeoutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StakeoutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StakeoutTests/Pods-StakeoutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A7A0B898F590A14BFFE58C8 /* Pods_Stakeout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stakeout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABA1A6BA6CE739A76EB58AE /* Pods-Stakeout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stakeout.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stakeout/Pods-Stakeout.release.xcconfig"; sourceTree = "<group>"; };
+		A31EE49420A4B85600AAA4DA /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		B887502858A0DCC239E2BFCC /* Pods_StakeoutTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StakeoutTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8FF1018916F3C119A623AFF /* Pods-StakeoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StakeoutTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StakeoutTests/Pods-StakeoutTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA6236F9508BFDBEE9017E08 /* Pods-Stakeout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stakeout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stakeout/Pods-Stakeout.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31EE49520A4B85600AAA4DA /* SafariServices.framework in Frameworks */,
 				790274C91C924CBC8899D8F0 /* Pods_Stakeout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +117,7 @@
 		4AF7DB2CDA9A0912EC61F736 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A31EE49420A4B85600AAA4DA /* SafariServices.framework */,
 				4A7A0B898F590A14BFFE58C8 /* Pods_Stakeout.framework */,
 				B887502858A0DCC239E2BFCC /* Pods_StakeoutTests.framework */,
 			);
@@ -625,7 +629,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.lukestringer.Stakeout;
+				PRODUCT_BUNDLE_IDENTIFIER = me.lukestringer.stakeout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -645,7 +649,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.lukestringer.Stakeout;
+				PRODUCT_BUNDLE_IDENTIFIER = me.lukestringer.stakeout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
