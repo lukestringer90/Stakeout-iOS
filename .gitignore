@@ -63,4 +63,3 @@ fastlane/test_output
 # End of https://www.gitignore.io/api/swift
 Pods
 Tweet Monitor.xcworkspace/xcshareddata
-Stakeout.xcworkspace/xcshareddata
