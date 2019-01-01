@@ -9,6 +9,9 @@
 import UIKit
 import TwitterKit
 import Keys
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
         Twitter.sharedInstance().start(withConsumerKey: StakeoutKeys().twitterConsumerKey,
                                            consumerSecret: StakeoutKeys().twitterConsumerSecret)
-        
+		
+		MSAppCenter.start(StakeoutKeys().appCenterAppSecret, withServices: [MSAnalytics.self, MSCrashes.self])
+		
         return true
     }
 	
